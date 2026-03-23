@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me - Eric Shan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">Eric Shan</a>
+            <button class="navbar-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul class="navbar-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="contact.html" class="active">Contact Me</a></li>
+                <li><a href="Eric Shan Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="contact-container">
+        <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
+            <div class="contact-left-title">
+                <h2>Get in Touch</h2>
+                <hr>
+            </div>
+            <input type="hidden" name="access_key" value="bfc93bad-bb21-4f2c-b14f-dd1fdb4367ad">
+            <input type="text" name="Your Namel" placeholder="Your Name" class="contact-inputs" required>
+            <input type="email" name="Your Email" placeholder="Your Email" class="contact-inputs" required>
+            <textarea name="Your Message" placeholder="Your Message" class="contact-inputs" required></textarea>
+            <button type="submit" class="contact-button">Send Message</button>
+        </form>
+        <div class="contact-right">
+
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
