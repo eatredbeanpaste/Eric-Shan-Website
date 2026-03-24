@@ -84,6 +84,15 @@ body::before{
     background-position: top center;
     pointer-events: none;
 }
+
+iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
         
 /* Navigation Bar */
 
@@ -98,7 +107,7 @@ body::before{
     align-items: center;
     justify-content: center;
 
-    background: transparent;
+    background: var(--background-color);
     backdrop-filter: blur(10px);
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
 
