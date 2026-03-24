@@ -55,7 +55,7 @@
     box-sizing: border-box;
 
 }body{
-
+    --topbar-height: 100px;
     min-height: 100vh;
     background-color: var(--background-color);
     background-image:
@@ -93,34 +93,54 @@ iframe {
     height: 100%;
     border: none;
 }
-        
+
 /* Navigation Bar */
 
-.navbar {
-    position: fixed;   /* always stays at top */
+.topbar {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 80px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: var(--background-color);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
-
-    z-index: 999;
-}
-
-.navbar-container{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
-    max-width: 1600px;
-    padding: 0 2rem;
+
+    padding: 15px 40px;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.logo {
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--text-color);
+
+}
+        
+.navbar {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+
+    padding: 10px 20px;
+    background: #e5e5e5;
+    border-radius: 20px;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+}
+
+.topbar--hide {
+    transform: translateY(calc(-1*var(--topbar-height)));
+    box-shadow: none;
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .navbar-logo{
@@ -131,30 +151,28 @@ iframe {
     cursor: pointer;
 }
 
-.navbar-container .navbar-menu{
+.navbar-menu {
     display: flex;
-    align-items: center;
-    gap: 1.5rem;
+    gap: 25px; /* spacing between items */
     list-style: none;
 }
 
-.navbar-container .navbar-menu li a{
-    color: var(--text-color);
+.navbar-container .navbar-menu li a {
+    color: #333;
     text-decoration: none;
-    font-size: 1.3rem;
-    font-weight: 500;
-    padding: 3px 20px;
-    border-radius: 20px;
-    border: 2px solid transparent;
-    transition: all 0.7s ease;
-    white-space: nowrap;
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    padding: 8px 16px;
+    border-radius: 12px;
+
+    transition: 0.3s ease;
 }
+
 
 .navbar-container .navbar-menu li a:hover,
 .navbar-container .navbar-menu li a.active{
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    border: 2px solid var(--secondary-color);
+    background-color: rgba(0, 0, 0, 0.08);
 }
 
 .navbar-toggle{
@@ -176,7 +194,11 @@ iframe {
 
 @media (max-width: 880px) {
     .navbar {
-        backdrop-filter: none; /* hide links on small screens */
+        position: static;   /* remove centering */
+        transform: none;
+        background: none;
+        box-shadow: none;
+        padding: 0;
     }
     .navbar-container .navbar-menu{
         display: none;
@@ -190,8 +212,8 @@ iframe {
         right: 0;
         padding: 5rem 1.5rem;
         box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
-        backdrop-filter: blur(10px);
-    }
+        background-color: var(--background-color);
+        z-index: 998;}
 
     .navbar-container .navbar-menu.active{
         display: flex;
@@ -236,9 +258,9 @@ iframe {
 
 @keyframes autoRun{
     from{
-        transform: perspective(1000px) rotateX(-5deg) rotateY(0deg);
+        transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
     }to{
-        transform: perspective(1000px) rotateX(-5deg) rotateY(360deg);
+        transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
     }
 }
 
