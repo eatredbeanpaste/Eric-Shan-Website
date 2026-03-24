@@ -6,7 +6,7 @@
     --secondary-color: #ffffff;
     --background-color: #D2D2D2;
     --text-color: #000000;
-    --gridline-color: #25283b22
+    --gridline-color: #25283b22;
 }
 
 .darkmode
@@ -15,7 +15,7 @@
     --secondary-color: #25283b;
     --background-color: #25283b;
     --text-color: #ffffff;
-    --gridline-color: #ffffff22
+    --gridline-color: #ffffff22;
 }
 
 .theme-switch{

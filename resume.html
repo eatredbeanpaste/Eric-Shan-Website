@@ -1,7 +1,6 @@
 <!DOCTYPE html><!--[if IE]>  <html class="pdf24_ie"> <![endif]-->
 <html>
 	<head>
-		<link rel="stylesheet" href="style.css">
         <link rel="icon" type="image/jpeg" href="images/ES-logo-black.png">
 		<meta charset="utf-8" />
 		<title>
@@ -10,27 +9,45 @@
 		<script type="text/javascript" src="darkmode.js" defer></script>
 
 		<style>
+
+			body{
+				--topbar-height: 100px;
+    			min-height: 100vh;
+    			background-color: var(--background-color);
+    			background-image:
+    			repeating-linear-gradient(
+        			to right, transparent 0 100px,
+        				var(--gridline-color) 100px 101px
+    			),
+    			repeating-linear-gradient(
+        			to bottom, transparent 0 100px,
+        				var(--gridline-color) 100px 101px
+    			);
+			}
 			.pdf24_ sup {
-	vertical-align: baseline;
-	position: relative;
-	top: -0.4em;
-}
-.pdf24_ sub {
-	vertical-align: baseline;
-	position: relative;
-	top: 0.4em;
-}
-.pdf24_ a:link {text-decoration:none;}
-.pdf24_ a:visited {text-decoration:none;}
-@media screen and (min-device-pixel-ratio:0), (-webkit-min-device-pixel-ratio:0), (min--moz-device-pixel-ratio: 0) {.pdf24_view{ font-size:10em; transform:scale(0.1); -moz-transform:scale(0.1); -webkit-transform:scale(0.1); -moz-transform-origin:top left; -webkit-transform-origin:top left; } }
-.pdf24_layer { }.pdf24_ie { font-size: 1pt; }
-.pdf24_ie body { font-size: 12em; }
-@media print{.pdf24_view {font-size:1em; transform:scale(1);}}
-.pdf24_grlink { position:relative;width:100%;height:100%;z-index:1000000; }
-.pdf24_01 {
-	position: absolute;
-	white-space: nowrap;
-}
+				vertical-align: baseline;
+				position: relative;
+				top: -0.4em;
+			}
+			.pdf24_ sub {
+				vertical-align: baseline;
+			position: relative;
+			top: 0.4em;
+			}
+
+			.pdf24_ a:link {text-decoration:none;}
+			.pdf24_ a:visited {text-decoration:none;}
+			@media screen and (min-device-pixel-ratio:0), (-webkit-min-device-pixel-ratio:0),
+			(min--moz-device-pixel-ratio: 0) {.pdf24_view{ font-size:10em; transform:scale(0.1); -moz-transform:scale(0.1); -webkit-transform:scale(0.1);
+				-moz-transform-origin:top left; -webkit-transform-origin:top left; } }
+			.pdf24_layer { }.pdf24_ie { font-size: 1pt; }
+			.pdf24_ie body { font-size: 12em; }
+			@media print{.pdf24_view {font-size:1em; transform:scale(1);}}
+			.pdf24_grlink { position:relative;width:100%;height:100%;z-index:1000000; }
+			.pdf24_01 {
+				position: absolute;
+				white-space: nowrap;
+			}
 .pdf24_02 {
 	font-size: 1em;
 	line-height: 0.0em;
@@ -68,7 +85,7 @@
 .pdf24_07 {
 	font-size: 1.245333em;
 	font-family: "EETTDB+TeXGyreTermesX-Bold-Identity-H", "Times New Roman";
-	color: #000000;
+	color: var(--primary-color);
 }
 .pdf24_08 {
 	line-height: 1.459em;
@@ -87,7 +104,7 @@
 .pdf24_10 {
 	font-size: 0.664175em;
 	font-family: "BSVVET+LMRoman8-Regular-Identity-H", "Times New Roman";
-	color: #000000;
+	color: var(--primary-color);
 }
 .pdf24_11 {
 	line-height: 1.417em;
@@ -102,7 +119,7 @@
 .pdf24_13 {
 	font-size: 0.871733em;
 	font-family: "EETTDB+TeXGyreTermesX-Bold-Identity-H", "Times New Roman";
-	color: #4472C4;
+	color: var(--heading-color);
 }
 .pdf24_14 {
 	letter-spacing: -0.0106em;
@@ -114,7 +131,7 @@
 .pdf24_15 {
 	font-size: 0.913242em;
 	font-family: "EETTDB+TeXGyreTermesX-Bold-Identity-H", "Times New Roman";
-	color: #000000;
+	color: var(--primary-color);
 }
 .pdf24_16 {
 	letter-spacing: -0.0061em;
@@ -130,7 +147,7 @@
 .pdf24_17 {
 	font-size: 0.913242em;
 	font-family: "VEDCLB+TeXGyreTermesX-Regular-Identity-H", "Times New Roman";
-	color: #000000;
+	color: var(--primary-color);
 }
 .pdf24_18 {
 	line-height: 1.336em;
@@ -142,7 +159,7 @@
 .pdf24_19 {
 	font-size: 0.913242em;
 	font-family: "JBAHWV+TeXGyreTermesX-Italic-Identity-H", "Times New Roman";
-	color: #000000;
+	color: var(--primary-color);
 }
 .pdf24_20 {
 	line-height: 1.376em;
@@ -157,7 +174,7 @@
 .pdf24_22 {
 	font-size: 0.788708em;
 	font-family: "VEDCLB+TeXGyreTermesX-Regular-Identity-H", "Times New Roman";
-	color: #414141;
+	color: var(--primary-color);
 }
 .pdf24_23 {
 	letter-spacing: -0.0023em;
@@ -176,7 +193,7 @@
 .pdf24_25 {
 	font-size: 0.871733em;
 	font-family: "EETTDB+TeXGyreTermesX-Bold-Identity-H", "Times New Roman";
-	color: #000000;
+	color: var(--primary-color);
 }
 .pdf24_26 {
 	letter-spacing: -0.0065em;
@@ -188,7 +205,7 @@
 .pdf24_27 {
 	font-size: 0.871733em;
 	font-family: "JBAHWV+TeXGyreTermesX-Italic-Identity-H", "Times New Roman";
-	color: #000000;
+	color: var(--primary-color);
 }
 @font-face {
 	font-family:"GUPPPH+LMRoman10-Regular-Identity-H";
@@ -197,7 +214,7 @@
 .pdf24_28 {
 	font-size: 0.788708em;
 	font-family: "GUPPPH+LMRoman10-Regular-Identity-H", "Times New Roman";
-	color: #000000;
+	color: var(--primary-color);
 }
 .pdf24_29 {
 	letter-spacing: -0.0028em;
@@ -209,7 +226,7 @@
 .pdf24_30 {
 	font-size: 0.871733em;
 	font-family: "GUPPPH+LMRoman10-Regular-Identity-H", "Times New Roman";
-	color: #000000;
+	color: var(--primary-color);
 }
 .pdf24_31 {
 	letter-spacing: -0.0009em;
@@ -354,7 +371,7 @@
 .pdf24_51 {
 	font-size: 0.871733em;
 	font-family: "VEDCLB+TeXGyreTermesX-Regular-Identity-H", "Times New Roman";
-	color: #000000;
+	color: var(--primary-color);
 }
 .pdf24_52 {
 	letter-spacing: -0.0007em;
@@ -464,7 +481,7 @@
 .pdf24_67 {
 	font-size: 0.830217em;
 	font-family: "VEDCLB+TeXGyreTermesX-Regular-Identity-H", "Times New Roman";
-	color: #000000;
+	color: var(--primary-color);
 }
 .pdf24_68 {
 	letter-spacing: -0.0021em;
@@ -476,7 +493,7 @@
 .pdf24_69 {
 	font-size: 0.830217em;
 	font-family: "GUPPPH+LMRoman10-Regular-Identity-H", "Times New Roman";
-	color: #000000;
+	color: var(--primary-color);
 }
 .pdf24_70 {
 	letter-spacing: -0.0031em;
@@ -504,6 +521,71 @@
 	box-shadow: 0 0 5px rgba(0,0,0,0.3) !important;
 	margin: 20px auto !important;
 }
+
+/* Dark mode styles */
+
+:root{
+    --primary-color: #25283b;
+    --secondary-color: #ffffff;
+    --background-color: #D2D2D2;
+    --text-color: #000000;
+	--heading-color: #4472C4;
+	--gridline-color: #25283b22;
+}
+
+.darkmode
+{
+    --primary-color: #ffffff;
+    --secondary-color: #25283b;
+    --background-color: #25283b;
+    --text-color: #ffffff;
+    --heading-color: #a2bdec;
+	--gridline-color: #ffffff22
+}
+
+.theme-switch{
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 20px;
+    right: 280px;
+    position: fixed;
+    z-index: 999;
+}
+
+.theme-switch svg{
+    fill: var(--secondary-color);
+}
+
+.theme-switch svg:last-child{
+    display: none;
+}
+
+.darkmode .theme-switch svg:first-child{
+    display: none;
+}
+
+.darkmode .theme-switch svg:last-child{
+    display: block;
+}
+
+@media (max-width: 1400px){
+    .theme-switch{
+        top: auto;
+        left: auto;
+
+        bottom: 20px;
+        right: 20px;
+
+        transform: none;
+    }
+}
+
 		</style>
 </head>
 	<body>
