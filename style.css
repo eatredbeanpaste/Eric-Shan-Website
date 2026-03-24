@@ -130,15 +130,21 @@ iframe {
 }
 
 .logo {
-    font-size: 1.3rem;
-    font-weight: 700;
+    display: flex;
+    align-items: center;
     text-decoration: none;
     color: var(--text-color);
 
     max-width: 200px;
     width: 100%;
 }
-        
+
+.logo img {
+    height: 40px;   /* adjust size as needed */
+    width: auto;
+    display: block;
+}
+
 .navbar {
     position: fixed;
     left: 50%;
