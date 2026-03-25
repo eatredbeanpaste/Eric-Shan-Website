@@ -36,17 +36,28 @@
         </nav>
     </header>
     <div class="contact-container">
-        <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
-            <div class="contact-left-title">
-                <h2>Get in Touch</h2>
-                <hr>
-            </div>
-            <input type="hidden" name="access_key" value="bfc93bad-bb21-4f2c-b14f-dd1fdb4367ad">
-            <input type="text" name="Your Namel" placeholder="Your Name" class="contact-inputs" required>
-            <input type="email" name="Your Email" placeholder="Your Email" class="contact-inputs" required>
-            <textarea name="Your Message" placeholder="Your Message" class="contact-inputs" required></textarea>
-            <button type="submit" class="contact-button">Send Message</button>
-        </form>
+
+        <div class="contact-left">
+        <h2>Get in Touch</h2>
+        <hr>
+
+        <p><strong>Email:</strong><br>eshan88899@gmail.com</p>
+        <p><strong>Phone:</strong><br>+64 2108213646</p>
+        <p><strong>Location:</strong><br>Auckland, New Zealand</p>
+
+    </div>
+        <form action="https://api.web3forms.com/submit" method="POST" class="contact-right">
+        <input type="hidden" name="access_key" value="bfc93bad-bb21-4f2c-b14f-dd1fdb4367ad">
+
+        <div class="input-row">
+            <input type="text" name="name" placeholder="Your full name" required>
+            <input type="email" name="email" placeholder="Your email address" required>
+        </div>
+
+        <textarea name="message" placeholder="Write something..." required></textarea>
+
+        <button type="submit">Send Message</button>
+    </form>
         <div class="contact-right">
 
         </div>
