@@ -154,14 +154,6 @@ body{
     justify-content: center;
 }
 
-.navbar-logo{
-    font-size: 1.5rem;
-    font-weight: 600;
-    color:var(--text-color);
-    text-decoration: none;
-    cursor: pointer;
-}
-
 .navbar-menu {
     display: flex;
     gap: 25px; /* spacing between items */
