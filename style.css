@@ -86,15 +86,7 @@ body{
         var(--gridline-color) 100px 101px
     );
 }
-        
-iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-}
+
 
 /* Navigation Bar */
 
@@ -392,12 +384,11 @@ iframe {
 }
 
 /* Projects Page */
-
-
 .projects {
-    max-width: 1400px;
     margin: 120px auto;
     padding: 20px;
+    max-width: 100%;
+    max-width: 1200px;
 }
 
 .projects h1 {
@@ -414,6 +405,7 @@ iframe {
     gap: 30px;
 }
 
+/* Project Card */
 .project-item {
     display: flex;
     flex-direction: row-reverse;
@@ -422,21 +414,99 @@ iframe {
     background: var(--secondary-color);
     padding: 20px;
     border-radius: 10px;
+
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+
+    cursor: pointer;
+    transition: max-width 0.5s ease, transform 0.3s ease;
 }
 
-/* Image styling */
-.project-item img {
-    width: 200px;
-    max-width: 100%;
-    height: 150px;
+.project-item:hover {
+    transform: scale(1.02);
+}
+
+/* Expanded state */
+.project-item.active {
+    max-width: 1200px;
+    flex-direction: column;       /* stack everything vertically */
+    align-items: center;
+}
+
+/* Text container */
+.project-text {
+    flex: 1;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1000px;
+    transition: max-width 0.5s ease, align-items 0.3s ease;
+}
+
+/* Expand text container when active */
+.project-item.active .project-text {
+    max-width: 1200px;
+    align-items: center;   /* center text & images */
+}
+
+/* Main image (if you add one later) */
+.project-item > img {
+    width: 250px;
+    height: 200px;
     object-fit: cover;
     border-radius: 10px;
 }
 
-/* Text takes remaining space */
-.project-text {
-    flex: 1;
-    color: var(--text-color);
+/* Extra content (hidden by default) */
+.project-extra-text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+
+    transition: max-height 0.5s ease, opacity 0.3s ease;
+}
+
+.project-item.active {
+    width: 100%;        /* take full width of parent */
+    min-width: 1200px;  /* enforce desired width */
+    max-width: 1200px;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Show extra content when active */
+.project-item.active .project-extra-text {
+    margin-top: 15px;
+    max-height: 500px;
+    opacity: 1;
+    width: 100%;
+    max-width: 1000px;
+}
+
+/* Images under text */
+.project-extra-images {
+    display: flex;
+    justify-content: center;   /* centers images */
+    gap: 20px;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 1200px;
+    transition: max-width 0.5s ease;
+}
+
+/* Image styling */
+.project-extra-images img {
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
 }
 
 @media (max-width: 768px){
@@ -638,3 +708,5 @@ body.contact-page{
         flex-direction: column;
     }
 }
+
+/* Reseume Page */
