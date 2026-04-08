@@ -37,6 +37,67 @@ body{
     --gridline-color: #25283b22;
 }
 
+/* Language Toggle Button Styles */
+
+.language-selection {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.lang-text {
+    font-weight: normal;
+    font-size: 14px;
+    color: #999; /* Faded color for inactive state */
+    transition: color 0.3s;
+}
+
+.lang-text.active {
+    color: white; /* Bold color for active state */
+    font-weight: bold;
+}
+
+.toggle-container {
+    position: relative;
+    width: 60px;
+    height: 30px;
+}
+
+.lang-checkbox {
+    display: none; /* Hide the default checkbox */
+}
+
+.lang-label {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #555; /* Default background (English state) */
+    border-radius: 15px;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+.inner-circle {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    background-color: white;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s;
+}
+
+/* When checked (Chinese state) */
+.lang-checkbox:checked + .lang-label {
+    background-color: #cc0000; /* New red color */
+}
+
+.lang-checkbox:checked + .lang-label .inner-circle {
+    transform: translateX(30px); /* Move the circle */
+}
+
 /*  ----------------------------------------------------------------------------------Dark/Light Mode--------------------------------------------------------------------------------------------*/
 
 
@@ -92,6 +153,8 @@ body{
     }
 }
 
+
+ 
 /*------------------------------------------------------------------------------------Navigation Bar---------------------------------------------------------------------------------------------*/
 
 .topbar {
@@ -203,6 +266,11 @@ body{
         box-shadow: none;
         padding: 0;
     }
+
+    .topbar--hide {
+        transform: translate(-50%, 0); /* ✅ don't move it off screen */
+    }
+    
     .navbar-container .navbar-menu{
         display: none;
         flex-direction: column; /* show hamburger on small screens */
