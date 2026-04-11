@@ -7,91 +7,154 @@
     <title>Contact Me | Eric Shan</title>
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="darkmode.js" defer></script>
+    <script type="text/javascript" src="language.js" defer></script>
     <link rel="icon" type="image/jpeg" href="images/ES-logo-black.png">
 </head>
 
 <body class="contact-page">
-    <button class="theme-switch">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Zm0-80q88 0 158-48.5T740-375q-20 5-40 8t-40 3q-123 0-209.5-86.5T364-660q0-20 3-40t8-40q-78 32-126.5 102T200-480q0 116 82 198t198 82Zm-10-270Z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M565-395q35-35 35-85t-35-85q-35-35-85-35t-85 35q-35 35-35 85t35 85q35 35 85 35t85-35Zm-226.5 56.5Q280-397 280-480t58.5-141.5Q397-680 480-680t141.5 58.5Q680-563 680-480t-58.5 141.5Q563-280 480-280t-141.5-58.5ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Zm326-268Z"/></svg>
-    </button>
+    <div class="fab-container">
+        <button class="theme-switch">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Zm0-80q88 0 158-48.5T740-375q-20 5-40 8t-40 3q-123 0-209.5-86.5T364-660q0-20 3-40t8-40q-78 32-126.5 102T200-480q0 116 82 198t198 82Zm-10-270Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M565-395q35-35 35-85t-35-85q-35-35-85-35t-85 35q-35 35-35 85t35 85q35 35 85 35t85-35Zm-226.5 56.5Q280-397 280-480t58.5-141.5Q397-680 480-680t141.5 58.5Q680-563 680-480t-58.5 141.5Q563-280 480-280t-141.5-58.5ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Zm326-268Z"/></svg>
+        </button>
+        <button class="lang-switch" aria-label="Toggle Language">
+            <span class="lang-icon EN">EN</span>
+            <span class="lang-icon CN">中</span>
+        </button>
+    </div>
     <header class="topbar">
-        <a href="index.html" class="logo">
-            <img src="images/ES-logo-black.png" alt="Eric Shan">
-            </a>
-        <nav class="navbar">
-            <div class="navbar-container">
-                <button class="navbar-toggle">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </button>
-                <ul class="navbar-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="projects.html" class="active">Projects</a></li>
-                    <li><a href="about.html">About Me</a></li>
-                    <li><a href="contact.html" >Contact Me</a></li>
-                    <li><a href="resume.html" target="_blank" rel="noopener noreferrer">Resume</a></li>
-
-                </ul>
-            </div>
-        </nav>
-    </header>
+    <a href="index.html" class="logo">
+        <img src="images/ES-logo-black.png" alt="Eric Shan">
+    </a>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <button class="navbar-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul class="navbar-menu">
+                <li>
+                    <a href="index.html">
+                        <span class="text textEN">Home</span>
+                        <span class="text textCN">首页</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="projects.html" class="active">
+                        <span class="text textEN">Projects</span>
+                        <span class="text textCN">项目</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html">
+                        <span class="text textEN">About Me</span>
+                        <span class="text textCN">关于我</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html">
+                        <span class="text textEN">Contact Me</span>
+                        <span class="text textCN">联系我</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="resume.html" target="_blank" rel="noopener noreferrer">
+                        <span class="text textEN">Resume</span>
+                        <span class="text textCN">简历</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
     
     <div class="projects">
-        <h1>My Projects</h1>
-        <div class="project-list">
-            <div class="project-item">
-                <div class="project-text">
+    <div class="text textEN"><h1>My Projects</h1></div>
+    <div class="text textCN"><h1>我的项目</h1></div>
+
+    <div class="project-list">
+        
+        <div class="project-item">
+            <div class="project-text">
+                <div class="text textEN">
                     <h2>Battery Level Monitoring System</h2>
                     <p>Kicad, PCB Fabrication, Soldering</p>
-                    <div class="project-extra-text">
-                        <p>Designed and implemented a 12V lithium battery level monitoring system with visual LED indicators and an emergency relay cutoff 
-                            to prevent damage from low-voltage conditions. Managed the complete PCB development lifecycle, including schematic capture,
-                            circuit simulation, component selection, PCB layout optimization for signal integrity, fabrication, soldering, and full assembly.
-                            Tested and validated the system to ensure accurate voltage monitoring, reliable LED signaling,
-                            and fail-safe relay operation under various load conditions.</p>
-                        <div class="project-extra-images">
-                            <img src="images/bms1.jpg">
-                            <img src="images/bms2.jpg">
-                        </div>
+                </div>
+                <div class="text textCN">
+                    <h2>电池电量监测系统</h2>
+                    <p>Kicad, PCB 制造, 焊接</p>
+                </div>
+
+                <div class="project-extra-text">
+                    <div class="text textEN">
+                        <p>Designed and implemented a 12V lithium battery level monitoring system with visual LED indicators and an emergency relay cutoff to prevent damage from low-voltage conditions. Managed the complete PCB development lifecycle, including schematic capture, circuit simulation, component selection, PCB layout optimization for signal integrity, fabrication, soldering, and full assembly.</p>
+                    </div>
+                    <div class="text textCN">
+                        <p>设计并实现了一个带 LED 指示灯和紧急继电器切断功能的 12V 锂电池电量监测系统，以防止低压损坏。管理了完整的 PCB 开发生命周期，包括原理图设计、电路仿真、元器件选型、旨在保证信号完整性的 PCB 布局优化、制造、焊接和整机组装。</p>
+                    </div>
+                    <div class="project-extra-images">
+                        <img src="images/bms1.jpg">
+                        <img src="images/bms2.jpg">
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="project-item">
-                <div class="project-text">
+        <div class="project-item">
+            <div class="project-text">
+                <div class="text textEN">
                     <h2>DC - DC Flyback Transformer</h2>
                     <p>Altium Designer, PCB Fabrication, Soldering</p>
-                    <div class="project-extra-text">
-                        <p>Designed and validated a current-mode controlled flyback converter using the UC3843 for isolated DC–DC conversion. 
-                            Performed key design calculations for switching parameters, transformer (turns ratio, inductance, core selection), and compensation to ensure stability. Integrated protection circuits including RCD snubber and current sensing, and implemented optocoupler-based feedback for isolated regulation. 
-                            Tested under varying load and input conditions, verifying efficiency, regulation, transient response, and switching performance via oscilloscope measurements.</p>
-                        <div class="project-extra-images">
-                            <img src="images/dc1.jpg">
-                            <img src="images/dc2.png">
-                        </div>
+                </div>
+                <div class="text textCN">
+                    <h2>DC - DC 反激式变压器</h2>
+                    <p>Altium Designer, PCB 制造, 焊接</p>
+                </div>
+
+                <div class="project-extra-text">
+                    <div class="text textEN">
+                        <p>Designed and validated a current-mode controlled flyback converter using the UC3843 for isolated DC–DC conversion. Performed key design calculations for switching parameters, transformer (turns ratio, inductance, core selection), and compensation to ensure stability. Integrated protection circuits including RCD snubber and implemented optocoupler-based feedback.</p>
+                    </div>
+                    <div class="text textCN">
+                        <p>基于 UC3843 设计并验证了电流模式控制的反激式转换器，用于隔离式 DC-DC 转换。进行了开关参数、变压器（匝数比、电感、磁芯选择）和补偿电路的关键设计计算以确保稳定性。集成了包括 RCD 吸收电路在内的保护电路，并实现了基于光耦的反馈调节。</p>
+                    </div>
+                    <div class="project-extra-images">
+                        <img src="images/dc1.jpg">
+                        <img src="images/dc2.png">
                     </div>
                 </div>
             </div>
-
-            <div class="project-item">
-                <div class="project-text">
-                    <h2>Custom FPV Drone</h2>
-                    <p>Soldering, Microcontroller Intergration</p>
-                    <div class="project-extra-text">
-                        <p>Designed and assembled a quadcopter drone integrating brushless motors, ESCs, an ELRS receiver, and a flight controller. 
-                            Performed system integration including calibration, PID tuning, and signal mapping. Implemented robust power distribution with LiPo interfacing and noise mitigation. 
-                            Tested under varying load conditions to validate stability, control performance, and power integrity.</p>
-                        <div class="project-extra-images">
-                            <img src="images/drone1.jpg">
-                            <img src="images/drone2.jpg">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
+
+        <div class="project-item">
+            <div class="project-text">
+                <div class="text textEN">
+                    <h2>Custom FPV Drone</h2>
+                    <p>Soldering, Microcontroller Integration</p>
+                </div>
+                <div class="text textCN">
+                    <h2>定制 FPV 无人机</h2>
+                    <p>焊接, 微控制器集成</p>
+                </div>
+
+                <div class="project-extra-text">
+                    <div class="text textEN">
+                        <p>Designed and assembled a quadcopter drone integrating brushless motors, ESCs, an ELRS receiver, and a flight controller. Performed system integration including calibration, PID tuning, and signal mapping. Implemented robust power distribution with LiPo interfacing and noise mitigation.</p>
+                    </div>
+                    <div class="text textCN">
+                        <p>设计并组装了一台集成了无刷电机、电调 (ESC)、ELRS 接收机和飞行控制器的四旋翼无人机。完成了系统集成，包括校准、PID 调优和信号映射。实现了带有 LiPo 接口和噪声抑制功能的稳健配电系统。</p>
+                    </div>
+                    <div class="project-extra-images">
+                        <img src="images/drone1.jpg">
+                        <img src="images/drone2.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
     <script src="infoexpand.js"></script>
     <script src="navscroll.js"></script>
 </body>

@@ -7,62 +7,122 @@
     <title>Contact Me | Eric Shan</title>
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="darkmode.js" defer></script>
+    <script type="text/javascript" src="language.js" defer></script>
     <link rel="icon" type="image/jpeg" href="images/ES-logo-black.png">
 </head>
 <body class="contact-page">
-    <button class="theme-switch">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Zm0-80q88 0 158-48.5T740-375q-20 5-40 8t-40 3q-123 0-209.5-86.5T364-660q0-20 3-40t8-40q-78 32-126.5 102T200-480q0 116 82 198t198 82Zm-10-270Z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M565-395q35-35 35-85t-35-85q-35-35-85-35t-85 35q-35 35-35 85t35 85q35 35 85 35t85-35Zm-226.5 56.5Q280-397 280-480t58.5-141.5Q397-680 480-680t141.5 58.5Q680-563 680-480t-58.5 141.5Q563-280 480-280t-141.5-58.5ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Zm326-268Z"/></svg>
-    </button>
+
+    <div class="fab-container">
+        <button class="theme-switch">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Zm0-80q88 0 158-48.5T740-375q-20 5-40 8t-40 3q-123 0-209.5-86.5T364-660q0-20 3-40t8-40q-78 32-126.5 102T200-480q0 116 82 198t198 82Zm-10-270Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M565-395q35-35 35-85t-35-85q-35-35-85-35t-85 35q-35 35-35 85t35 85q35 35 85 35t85-35Zm-226.5 56.5Q280-397 280-480t58.5-141.5Q397-680 480-680t141.5 58.5Q680-563 680-480t-58.5 141.5Q563-280 480-280t-141.5-58.5ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Zm326-268Z"/></svg>
+        </button>
+        <button class="lang-switch" aria-label="Toggle Language">
+            <span class="lang-icon EN">EN</span>
+            <span class="lang-icon CN">中</span>
+        </button>
+    </div>
+
     <header class="topbar">
-        <a href="index.html" class="logo">
-            <img src="images/ES-logo-black.png" alt="Eric Shan">
-            </a>
-        <nav class="navbar">
-            <div class="navbar-container">
-                <button class="navbar-toggle">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </button>
-                <ul class="navbar-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="about.html">About Me</a></li>
-                    <li><a href="contact.html" class="active">Contact Me</a></li>
-                    <li><a href="resume.html" target="_blank" rel="noopener noreferrer">Resume</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+    <a href="index.html" class="logo">
+        <img src="images/ES-logo-black.png" alt="Eric Shan">
+    </a>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <button class="navbar-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul class="navbar-menu">
+                <li>
+                    <a href="index.html">
+                        <span class="text textEN">Home</span>
+                        <span class="text textCN">首页</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="projects.html">
+                        <span class="text textEN">Projects</span>
+                        <span class="text textCN">项目</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html">
+                        <span class="text textEN">About Me</span>
+                        <span class="text textCN">关于我</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html" class="active">
+                        <span class="text textEN">Contact Me</span>
+                        <span class="text textCN">联系我</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="resume.html" target="_blank" rel="noopener noreferrer">
+                        <span class="text textEN">Resume</span>
+                        <span class="text textCN">简历</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
 
     <div class="contact-container">
 
-        <div class="contact-left">
-        <h2>Get in Touch</h2>
+    <div class="contact-left">
+        <div class="text textEN"><h2>Get in Touch</h2></div>
+        <div class="text textCN"><h2>联系我</h2></div>
         <hr>
 
-        <p><strong>Email:</strong><br>eshan88899@gmail.com</p>
-        <p><strong>Phone:</strong><br>+64 2108213646</p>
-        <p><strong>Location:</strong><br>Auckland, New Zealand</p>
-
+        <div class="text textEN">
+            <p><strong>Email:</strong><br>eshan88899@gmail.com</p>
+            <p><strong>Phone:</strong><br>+64 2108213646</p>
+            <p><strong>Location:</strong><br>Auckland, New Zealand</p>
+        </div>
+        <div class="text textCN">
+            <p><strong>电子邮箱:</strong><br>eshan88899@gmail.com</p>
+            <p><strong>电话:</strong><br>+64 2108213646</p>
+            <p><strong>位置:</strong><br>新西兰，奥克兰</p>
+        </div>
     </div>
-        <form action="https://api.web3forms.com/submit" method="POST" class="contact-right">
+
+    <form action="https://api.web3forms.com/submit" method="POST" class="contact-right">
         <input type="hidden" name="access_key" value="bfc93bad-bb21-4f2c-b14f-dd1fdb4367ad">
 
         <div class="input-row">
-            <input type="text" name="name" placeholder="Full Name" required>
-            <input type="email" name="email" placeholder="Email Address" required>
+            <div class="text textEN">
+                <input type="text" name="name" placeholder="Full Name">
+            </div>
+            <div class="text textCN">
+                <input type="text" name="name_cn" placeholder="姓名">
+            </div>
+
+            <div class="text textEN">
+                <input type="email" name="email" placeholder="Email Address">
+            </div>
+            <div class="text textCN">
+                <input type="email" name="email_cn" placeholder="邮箱地址">
+            </div>
         </div>
 
-        <textarea name="message" placeholder="Message" required></textarea>
+        <div class="text textEN">
+            <textarea name="message" placeholder="Message"></textarea>
+        </div>
+        <div class="text textCN">
+            <textarea name="message_cn" placeholder="留言内容"></textarea>
+        </div>
 
-        <button type="submit">Send Message</button>
+        <div class="text textEN">
+            <button type="submit">Send Message</button>
+        </div>
+        <div class="text textCN">
+            <button type="submit">发送消息</button>
+        </div>
     </form>
-        <div class="contact-right">
-
-        </div>
-    </div>
+</div>
      <script src="navscroll.js"></script>
 </body>
 <script src="script.js"></script>
