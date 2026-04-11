@@ -6,7 +6,7 @@ navbarToggle.addEventListener('click', () => {
     navbarMenu.classList.toggle('active');
 
 
-});j
+});
 
 const langToggle = document.getElementById('lang-toggle');
 const langEnText = document.getElementById('lang-en');
