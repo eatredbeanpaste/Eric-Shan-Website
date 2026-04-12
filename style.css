@@ -1,8 +1,6 @@
 @import url('https://fonts.cdnfonts.com/css/poppins');
 
-/* ------------------------------------------------------------------------------------
-    General Setup & Variables
-------------------------------------------------------------------------------------*/
+/* -----------------------------------------------------------------------------------General Setup & Variables----------------------------------------------------------------------------------*/
 html {
     scrollbar-gutter: stable;
 }
@@ -47,9 +45,12 @@ body {
 }
 
 /* Language Text Toggling Logic */
-.text.textCN { display: none; }
-.chinese-mode .text.textEN { display: none; }
-.chinese-mode .text.textCN { display: block; }
+.text.textCN {
+    display: none; }
+.chinese-mode .text.textEN {
+    display: none; }
+.chinese-mode .text.textCN {
+    display: block; }
 
 /* -----------------------------------------------------------------------Floating Action Buttons (Theme & Language)-----------------------------------------------------------------------------*/
 
@@ -112,9 +113,8 @@ body {
     }
 }
 
-/* ------------------------------------------------------------------------------------
-    Navigation Bar
-------------------------------------------------------------------------------------*/
+/* ---------------------------------------------------------------------------------------Navigation Bar-----------------------------------------------------------------------------------------*/
+
 .topbar {
     position: fixed;
     top: 0;
@@ -138,12 +138,14 @@ body {
     color: var(--text-color);
     max-width: 200px;
     width: 100%;
+    
 }
 
 .logo img {
     height: 40px;
     width: auto;
     display: block;
+    border-radius: 8px;
 }
 
 .navbar {
