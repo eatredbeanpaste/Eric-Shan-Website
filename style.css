@@ -38,7 +38,7 @@ body {
 /* -----------------------------------------------------------------------------------Modes (Dark & Chinese)------------------------------------------------------------------------------------*/
 .darkmode {
     --primary-color: #ffffff;
-    --secondary-color: #25283b;
+    --secondary-color: #000000;
     --background-color: #25283b;
     --text-color: #ffffff;
     --gridline-color: #ffffff22;
@@ -325,6 +325,7 @@ body {
     position: relative; 
     top: -200px;  
     left: 300px;
+    color: var(--text-color);
 }
 
 .banner .content p3 { color: #6d96ee; }
