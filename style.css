@@ -232,9 +232,14 @@ body {
     .navbar-container .navbar-menu {
         display: none;
         flex-direction: column;
+        
+        /* ADD THESE TWO LINES */
+        align-items: flex-start; /* Aligns the list items to the left */
+        text-align: left;        /* Aligns the text inside the items to the left */
+        
         position: absolute;
         height: 100vh;
-        width: 250px;
+        width: 200px;
         top: 0;
         right: 0;
         padding: 5rem 1.5rem;
@@ -243,20 +248,35 @@ body {
         z-index: 1001;
     }
 
+    .navbar-container .navbar-menu li a {
+        width: 100%;            /* Allow it to take up the menu width */
+        justify-content: flex-start; /* Move the content (the span) to the left */
+        text-align: left;       /* Ensure text is left-aligned */
+    }
+
+    .topbar.topbar--hide {
+        transform: translate(-50%, 0);
+    }
+
     .navbar-container .navbar-menu.active {
-        display: flex; }
+        display: flex; 
+    }
 
     .navbar-toggle {
-        display: block; z-index: 1002; }
+        display: block; z-index: 1002; 
+    }
         
     .navbar-toggle.active .bar:nth-child(2) {
-        opacity: 0; }
+        opacity: 0; 
+    }
 
     .navbar-toggle.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg); }
+        transform: translateY(8px) rotate(45deg); 
+    }
 
     .navbar-toggle.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg); }
+        transform: translateY(-8px) rotate(-45deg); 
+    }
 }
 
 /* ------------------------------------------------------------------------------------
