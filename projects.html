@@ -18,7 +18,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M565-395q35-35 35-85t-35-85q-35-35-85-35t-85 35q-35 35-35 85t35 85q35 35 85 35t85-35Zm-226.5 56.5Q280-397 280-480t58.5-141.5Q397-680 480-680t141.5 58.5Q680-563 680-480t-58.5 141.5Q563-280 480-280t-141.5-58.5ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Zm326-268Z"/></svg>
         </button>
         <button class="lang-switch" aria-label="Toggle Language">
-            <span class="lang-icon EN">中</span>
+            <span class="lang-icon EN">中文</span>
             <span class="lang-icon CN">EN</span>
         </button>
     </div>
@@ -79,7 +79,7 @@
             <div class="project-text">
                 <div class="text textEN">
                     <h2>Battery Level Monitoring System</h2>
-                    <p>Kicad, PCB Fabrication, Soldering</p>
+                    <p>Kicad, PCB Fabrication, Soldering, LT-Spice</p>
                 </div>
                 <div class="text textCN">
                     <h2>电池电量监测系统</h2>
@@ -88,14 +88,21 @@
 
                 <div class="project-extra-text">
                     <div class="text textEN">
-                        <p>Designed and implemented a 12V lithium battery level monitoring system with visual LED indicators and an emergency relay cutoff to prevent damage from low-voltage conditions. Managed the complete PCB development lifecycle, including schematic capture, circuit simulation, component selection, PCB layout optimization for signal integrity, fabrication, soldering, and full assembly.</p>
+                        <p>During my internship at Progressive Technologies NZ, I designed and implemented a 12V lithium battery level monitoring system with visual LED indicators and a buzzer.
+                            The circuit also implemented an emergency relay cutoff to prevent damage from low-voltage conditions. 
+                            This project included the complete PCB development lifecycle, designing and testing the circuit in LT-Spice,
+                             selecting the components, designing the PCB layout and optimizing it in KiCad, creating gerber files and sending the PCB to be made, soldering/testing the pcb,
+                              and manufacturing the PCB for the customer.</p>
                     </div>
                     <div class="text textCN">
-                        <p>设计并实现了一个带 LED 指示灯和紧急继电器切断功能的 12V 锂电池电量监测系统，以防止低压损坏。管理了完整的 PCB 开发生命周期，包括原理图设计、电路仿真、元器件选型、旨在保证信号完整性的 PCB 布局优化、制造、焊接和整机组装。</p>
+                        <p>在我于 Progressive Technologies NZ 实习期间，我设计并实现了一套 12V 锂电池电量监测系统，该系统配有可视化 LED 指示灯和蜂鸣器。
+                            该电路还集成了紧急继电器断电功能，以防止因低电压情况对设备造成损坏。
+                            该项目涵盖了完整的 PCB 开发流程，包括：在 LT-Spice 中进行电路设计与仿真测试、元器件选型、在 KiCad 中进行 PCB 布局设计与优化、生成 Gerber 文件并发送制造、对 PCB 进行焊接与测试，以及最终为客户完成 PCB 的生产制造。</p>
                     </div>
                     <div class="project-extra-images">
                         <img src="images/bms1.jpg">
                         <img src="images/bms2.jpg">
+                        <img src="images/bmpcb.png">
                     </div>
                 </div>
             </div>
@@ -105,19 +112,25 @@
             <div class="project-text">
                 <div class="text textEN">
                     <h2>DC - DC Flyback Transformer</h2>
-                    <p>Altium Designer, PCB Fabrication, Soldering</p>
+                    <p>Altium Designer, PCB Fabrication, Soldering, PLECS</p>
                 </div>
                 <div class="text textCN">
                     <h2>DC - DC 反激式变压器</h2>
-                    <p>Altium Designer, PCB 制造, 焊接</p>
+                    <p>Altium Designer, PCB 制造, 焊接, PLECS</p>
                 </div>
 
                 <div class="project-extra-text">
                     <div class="text textEN">
-                        <p>Designed and validated a current-mode controlled flyback converter using the UC3843 for isolated DC–DC conversion. Performed key design calculations for switching parameters, transformer (turns ratio, inductance, core selection), and compensation to ensure stability. Integrated protection circuits including RCD snubber and implemented optocoupler-based feedback.</p>
+                        <p>This project designs and develops a pocket-sized power supply that could replace the low-voltage power supply found on a typical work bench. The power supply
+                            is implemented by using a DC-DC flyback converter that produces an isolated output voltage that can be controlled by the user. This flyback converter takes in an
+                            input voltage of 20VDC and has an output voltage range from 5VDC to 30VDC. The output voltage and current is
+                            controlled by the user by controlling the switch of a flyback converter using PWM signals. The PWM signals are generated using a UC3843 IC as per the output of a PI Controller
+                            implemented on an ATMega328PB microcontroller.</p>
                     </div>
                     <div class="text textCN">
-                        <p>基于 UC3843 设计并验证了电流模式控制的反激式转换器，用于隔离式 DC-DC 转换。进行了开关参数、变压器（匝数比、电感、磁芯选择）和补偿电路的关键设计计算以确保稳定性。集成了包括 RCD 吸收电路在内的保护电路，并实现了基于光耦的反馈调节。</p>
+                        <p>本项目设计并开发了一款口袋尺寸的电源，可替代典型工作台上的低压电源。该电源通过采用 DC-DC 反激式变换器实现，能够提供与输入隔离且可由用户调节的输出电压。
+                            该反激变换器的输入电压为 20VDC，输出电压范围为 5VDC 至 30VDC。
+                            输出电压和电流由用户通过控制反激变换器开关的 PWM 信号来调节。PWM 信号由 UC3843 集成电路生成，并基于在 ATMega328PB 微控制器上实现的 PI 控制器输出进行控制。</p>
                     </div>
                     <div class="project-extra-images">
                         <img src="images/dc1.jpg">
@@ -130,7 +143,7 @@
         <div class="project-item">
             <div class="project-text">
                 <div class="text textEN">
-                    <h2>Custom FPV Drone</h2>
+                    <h2>FPV Drone</h2>
                     <p>Soldering, Microcontroller Integration</p>
                 </div>
                 <div class="text textCN">
@@ -140,7 +153,9 @@
 
                 <div class="project-extra-text">
                     <div class="text textEN">
-                        <p>Designed and assembled a quadcopter drone integrating brushless motors, ESCs, an ELRS receiver, and a flight controller. Performed system integration including calibration, PID tuning, and signal mapping. Implemented robust power distribution with LiPo interfacing and noise mitigation.</p>
+                        <p>Designed and assembled a FPV drone that uses brushless motors, ESCs, an ELRS receiver,
+                             and a flight controller. Performed system integration including calibration, PID tuning, and signal mapping.
+                              Implemented robust power distribution with LiPo interfacing and noise mitigation.</p>
                     </div>
                     <div class="text textCN">
                         <p>设计并组装了一台集成了无刷电机、电调 (ESC)、ELRS 接收机和飞行控制器的四旋翼无人机。完成了系统集成，包括校准、PID 调优和信号映射。实现了带有 LiPo 接口和噪声抑制功能的稳健配电系统。</p>
@@ -148,6 +163,101 @@
                     <div class="project-extra-images">
                         <img src="images/drone1.jpg">
                         <img src="images/drone2.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-item">
+            <div class="project-text">
+                <div class="text textEN">
+                    <h2>Building Lighting Design</h2>
+                    <p>DIALux Evo</p>
+                </div>
+                <div class="text textCN">
+                    <h2>定制 FPV 无人机</h2>
+                    <p>DIALux Evo</p>
+                </div>
+
+                <div class="project-extra-text">
+                    <div class="text textEN">
+                        <p>This design project involves evaluating the existing lighting system, designing a new energy-efficient lighting system that is compliant
+                             with AS/NZS 1680 standards, designing outdoor lighting, and implementing emergency lighting in accordance with F6/F8 sections of the NZ Building Code.</p>
+                    </div>
+                    <div class="text textCN">
+                        <p>该设计项目包括评估现有照明系统，设计符合 AS/NZS 1680 标准的节能照明系统，进行室外照明设计，并根据新西兰建筑规范（NZ Building Code）F6/F8 条款实施应急照明系统。</p>
+                    </div>
+                    <div class="project-extra-images">
+                        <img src="images/bld1.png">
+                        <img src="images/bld2.png">
+                        <img src="images/bld3.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-item">
+            <div class="project-text">
+                <div class="text textEN">
+                    <h2>Solar Panel DC Converter & Mount</h2>
+                    <p>Soldering, KiCad, Autodesk Fusion 360, Metalworking</p>
+                </div>
+                <div class="text textCN">
+                    <h2>太阳能板直流转换器与安装支架</h2>
+                    <p>焊接, KiCad, Autodesk Fusion 360, 金属加工</p>
+                </div>
+
+                <div class="project-extra-text">
+                    <div class="text textEN">
+                        <p>At Progressive Technologies, I designed a Solar Panel DC Converter PCB that uses solar energy with battery storage to provide a reliable power supply 
+                            for monitoring water levels in lakes and streams for local councils. I also contributed to mechanical CAD design, 
+                            developing enclosures and mounting solutions that integrate electronics with real-world constraints. 
+                            This included designing a weatherproof mounting system that positions the solar panel at an optimal 40° angle for maximum energy 
+                            capture in New Zealand.</p>
+                    </div>
+                    <div class="text textCN">
+                        <p>在 Progressive Technologies 任职期间，我设计了一款太阳能直流转换器 PCB，利用太阳能结合电池储能，为当地市政部门监测湖泊和河流水位提供可靠的电源。
+                            我还参与了机械 CAD 设计，开发了外壳和安装方案，使电子系统能够适应实际应用环境的限制。这包括设计一套防水安装结构，使太阳能板以最佳的 40° 倾角安装，
+                            以在新西兰获得最大的能量采集效率。</p>
+                    </div>
+                    <div class="project-extra-images">
+                        <img src="images/SPOB1.png">
+                        <img src="images/SPOB2.png">
+                        <img src="images/SPOB3.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="project-item">
+            <div class="project-text">
+                <div class="text textEN">
+                    <h2>EVolocity Energy Monitoring System</h2>
+                    <p>Soldering, Raspberry Pico, Altium Designer</p>
+                </div>
+                <div class="text textCN">
+                    <h2>EVolocity 能源监测系统</h2>
+                    <p>焊接, Raspberry Pico, Altium Designer</p>
+                </div>
+
+                <div class="project-extra-text">
+                    <div class="text textEN">
+                        <p>The EVolocity program has New Zealand students design and race electric vehicles, but Race Day scoring is slowed by manual ECU data retrieval. 
+                            This project introduces a wireless system that automatically collects and uploads data via UART or USB, achieving 128 kB/s over 10 m+. The system has precise sensing
+                            from an energy monitoring PCB, Raspberry Pi Pico W firmware, and a user-friendly dashboard, it reduced download time by over 80% with zero packet loss. 
+                            The solution, improves accuracy, reduces delays and improves race day operations.</p>
+                    </div>
+                    <div class="text textCN">
+                        <p>EVolocity 项目让新西兰学生设计并参加电动赛车比赛，但比赛日的评分过程因手动获取 ECU 数据而变得缓慢。
+                            本项目提出了一种无线系统，可通过 UART 或 USB 自动采集并上传数据，在 10 米以上距离实现 128 kB/s 的传输速率。
+                            该系统通过能源监测 PCB 实现高精度数据采集，并结合 Raspberry Pi Pico W 固件以及用户友好的数据可视化仪表盘
+                            该方案将数据下载时间减少了 80% 以上，并实现了零数据包丢失。
+                            该解决方案提高了数据准确性，减少了延迟，并优化了比赛日的整体运行效率。</p>
+                    </div>
+                    <div class="project-extra-images">
+                        <img src="images/ev1.png">
+                        <img src="images/ev2.png">
+                        <img src="images/ev3.png">
                     </div>
                 </div>
             </div>
