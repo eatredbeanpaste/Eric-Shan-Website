@@ -357,15 +357,14 @@ body {
 }
 
 /* Grouping the text elements */
-.banner .content p1, 
-.banner .content p2, 
-.banner .content p3 {
+.banner .content .p-greeting, 
+.banner .content .p-intro, 
+.banner .content .p-name {
     display: block;
     text-align: left;
     width: fit-content;
-    font-size: clamp(2rem, 5vw, 5rem); /* Scales font based on screen width */
+    font-size: clamp(2rem, 5vw, 5rem); 
     position: absolute;
-    /* Use percentages so they stay relative to the 1400px container */
     top: 30%; 
     left: 25%; 
     color: var(--text-color);
@@ -374,8 +373,15 @@ body {
     pointer-events: auto;
 }
 
-.banner .content p2 { top: calc(30% + 1.2em); }
-.banner .content p3 { top: calc(30% + 2.4em); color: #6d96ee; }
+/* Specific positioning for intro and name */
+.banner .content .p-intro { 
+    top: calc(30% + 1.2em); 
+}
+
+.banner .content .p-name { 
+    top: calc(30% + 2.4em); 
+    color: #6d96ee; 
+}
 
 .banner .content .model {
     background-image: url(images/bunny.png);
