@@ -45,7 +45,7 @@ body {
     --text-color: #ffffff;
     --gridline-color: #ffffff22;
     --textbox-color: #2D2D2D;
-    --nav-border: #000000;
+    --nav-border: #ffffff;
     --nav-shadow: #ffffff;
 }
 
@@ -157,7 +157,7 @@ body {
     left: 50%;
     transform: translateX(-50%);
     padding: 15px 15px;
-    background: #e5e5e5;
+    background: var(--textbox-color);
     border-radius: 20px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     transition: transform 0.2s;
@@ -180,7 +180,7 @@ body {
 }
 
 .navbar-container .navbar-menu li a {
-    color: #333;
+    color: var(--text-color);
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 600;
