@@ -433,7 +433,7 @@ body {
 
         width: 80%;       
         height: 45vh;     
-        margin-top: -10vh; 
+        margin-top: -5vh; 
         background-size: contain;
         background-position: center; /* This centers the image inside the div */
         z-index: -1;
@@ -892,7 +892,7 @@ body.contact-page{
 
     .contact-container {
         flex-direction: column; /* stack sections */
-        gap: 30px;
+        gap: 0px;
         padding: 25px;
         margin: 40px 0;
     }
@@ -907,6 +907,7 @@ body.contact-page{
 
  
     .input-row {
+        margin-top: 0px;
         flex-direction: column;   /* stack Name + Email */
         gap: 15px;
         margin-bottom: 15px;      /* remove negative margin on mobile */
@@ -924,6 +925,7 @@ body.contact-page{
     }
 
     .contact-right button {
+        margin-top: 12px;
         width: 100%; /* full width button */
     }
 }
