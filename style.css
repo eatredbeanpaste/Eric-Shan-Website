@@ -1460,8 +1460,11 @@ body.contact-page{
 }
 
 .resume-content {
-    box-shadow: 0 0 5px rgba(0,0,0,0.3);
-    margin: 20px auto;
+    width: fit-content;
+    display: flex;
+    justify-content: center; /* Centers the resume if the screen is huge */
+    margin: 80px auto 20px auto;
     background-color: white;
-    width: fit-content; /* Optional: keeps the shadow tight to the resume width */
+    padding: 10px;
 }
+
