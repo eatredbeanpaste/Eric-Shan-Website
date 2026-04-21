@@ -476,24 +476,30 @@ body {
     background: var(--textbox-color);
     padding: 20px;
     border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
 
     cursor: pointer;
+    border: 2px solid transparent;
     transition: max-width 0.5s ease, transform 0.3s ease;
 }
 
 .project-item:hover {
     transform: scale(1.02);
+    border-color: var(--nav-border);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 /* Expanded state */
 .project-item.active {
     max-width: 1200px;
+    margin: 0 auto;
     flex-direction: column;       /* stack everything vertically */
     align-items: center;
+    border-color: var(--nav-border);
 }
 
 /* Text container */
@@ -510,6 +516,7 @@ body {
 
 /* Expand text container when active */
 .project-item.active .project-text {
+    width: 100%;
     max-width: 1200px;
     align-items: center;   /* center text & images */
 }
@@ -533,13 +540,6 @@ body {
     opacity: 0;
 
     transition: max-height 0.5s ease, opacity 0.3s ease;
-}
-
-.project-item.active {
-    width: 100%;        /* take full width of parent */
-    min-width: 1200px;  /* enforce desired width */
-    max-width: 1200px;
-    align-items: center;
 }
 
 /* Show extra content when active */
@@ -570,7 +570,7 @@ body {
     object-fit: cover;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
 
     .projects {
         margin: 80px auto;
@@ -696,6 +696,39 @@ body {
     color: var(--text-color);
     font-size: 3dvh;
     transition: 0.3s;
+}
+
+/* Lightbox Background */
+.lightbox {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Dark background */
+    justify-content: center;
+    align-items: center;
+}
+
+/* The Image itself */
+.lightbox-content {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+/* Close Button */
+.close-lightbox {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 @media (max-width: 995px) {
