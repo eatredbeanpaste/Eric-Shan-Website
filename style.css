@@ -925,7 +925,7 @@ body.contact-page{
         flex-direction: column; /* stack sections */
         gap: 0px;
         padding: 25px;
-        margin: 40px 0;
+        margin: 80px 0;
     }
 
     .contact-left h2 {
