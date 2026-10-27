@@ -117,3 +117,5 @@ nav a.on{color:var(--ink);font-weight:600;box-shadow:0 2px 0 var(--ink)}
 #lb button{position:absolute;background:rgba(255,255,255,.14);color:#fff;border:0;border-radius:50%;width:44px;height:44px;font-size:26px;cursor:pointer}
 #lp{left:12px}#ln{right:12px}#lx{top:12px;right:12px}
 @media (prefers-reduced-motion:reduce){.led{animation:none;background:var(--ink)}.feat::before,.feat::after{animation:none!important}}
+
+#dbody h4{margin:1.4em 0 .3em;font-family:'Archivo',sans-serif;font-size:1rem}
