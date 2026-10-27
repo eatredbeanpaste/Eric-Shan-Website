@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Eric Shan | Electrical Engineer</title>
 <meta name="description" content="Eric Shan, electrical and electronics engineering graduate in Auckland. Power electronics, PCB design and embedded systems.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Source+Sans+3:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<img id="plane" src="images/plane.png" alt="" aria-hidden="true">
 <header><div class="wrap">
 <a class="brand" href="#top">Eric Shan</a>
 <nav><a href="#projects" data-k="nProj"></a><a href="#experience" data-k="nExp"></a><a href="#about" data-k="nAbout"></a><a href="#contact" data-k="nContact"></a></nav>
@@ -58,8 +58,8 @@
 var T={
 en:{nProj:"Projects",nExp:"Experience",nSkills:"Skills",nAbout:"About",nContact:"Contact",
 avail:"Available for graduate roles in Auckland",
-lead:"Electrical and electronics engineering graduate. I design power electronics, PCBs and embedded systems, and take them from simulation through to tested hardware.",
-viewProj:"View Projects",resume:"Open Resume (PDF)",
+lead:"Hi there welcome to my website! I’m an electrical and electronics engineering graduate based in Auckland, New Zealand. I enjoy building and working on real-world projects, and I’m looking for graduate opportunities where I can keep learning, gain more experience, and contribute to meaningful engineering work.",
+viewProj:"View Projects",resume:"Open Resume",
 about1:"I’m an Electrical Engineering student who enjoys building and working on real-world projects. I’ve had hands-on experience with things like embedded systems, power systems, PCB design, control systems, and software development, and I like being able to turn ideas into something practical.",
 about2:"Over time, I’ve built a solid understanding of circuit simulation and power electronics, and I’m comfortable taking projects from early concepts through to testing and manufacturing.",
 about3:"I’m especially interested in projects that involve combining hardware and software, and finding efficient, smart solutions to engineering problems.",
@@ -81,9 +81,8 @@ x:[
 {h:"What it can do",p:"The system detects human movement and shows the approximate zone of a single moving person, using only Wi-Fi signals and no cameras or microphones. That suits presence and occupancy sensing, such as building energy management or monitoring activity in a room. At NZ$22.75 per extra node, it is also a practical platform for teaching and further multistatic sensing research."}
 ]},
 p:[
-{t:"EVolocity Energy Monitoring System",w:"Mar–Jun 2025",tags:["Altium Designer","LTspice","Raspberry Pi Pico W","FreeRTOS","React"],
+{t:"EVolocity Energy Monitoring System",w:"Mar–Jun 2025",tags:["Altium Designer","LTspice","Raspberry Pi Pico W"],
 d:"EVolocity students race electric vehicles, but race-day scoring was slowed by manual ECU data retrieval over USB-C, which could delay results by up to 90 minutes. Our team built a wireless system with a sensing PCB, Pico W firmware and a web dashboard that collects the data automatically over UART or USB.",
-r:"128 kB/s over 10 m+, download time cut by over 80%, zero packet loss.",
 x:[
 {h:"Hardware",p:"The sensing PCB measures voltage with a buffer op-amp and current across two parallel 0.2 Ω shunt resistors with a gain-of-10 amplifier. Each signal passes through an RC low-pass filter to prevent aliasing, and Schottky diodes clamp it to 3.3 V to protect the Pico W. An L78L05 regulator supplies the op-amps, and test points and decoupling capacitors make debugging easier."},
 {h:"Firmware",p:"C with the Pico SDK and FreeRTOS, split across the Pico W's two cores. One task samples voltage, current and temperature at 5 Hz and averages them each second. Flash tasks batch the samples into 256-byte pages and write them to a circular buffer holding about 24 hours of data, storing the write offset so nothing is lost in a power cut. A Wi-Fi task reconnects automatically every 5 seconds, and an HTTP task posts batches of 56 samples as JSON to the server."},
@@ -92,9 +91,8 @@ x:[
 {h:"Results",p:"Voltage measurement error averaged about 0.7% and current about 0.9%, inside the ±1% requirement. Noise stayed below 10 mV RMS and the 5 V regulator held within ±0.02 V across all loads. The ADC read within 0.87% of a 2 V reference. The system reached 128 kB/s over 10 m+, cut download time by over 80% and lost no packets under simulated interference."},
 {h:"What it can do",p:"Race-day data now arrives wirelessly with no cables to plug in. Judges get scores and rankings straight away, and teachers and mentors can follow their team's performance during the event. Because each monitor is its own entity, a unit can be paired with a different team if something goes wrong, and one app can run several competitions."}
 ]},
-{t:"Battery Level Monitoring System",w:"Dec 2025–Jan 2026",tags:["KiCad","LTspice","PCB fabrication"],
+{t:"Battery Level Monitoring System",w:"Progressive Technologies, 2025–2026",tags:["KiCad","LTspice","PCB Fabrication"],
 d:"A battery monitor for ProTech's remote power products. It shows the charge state of a 12V lead-acid battery with green and red LEDs and automatically disconnects the battery before deep discharge can damage it. I handled the whole process: simulation, schematic, KiCad layout, soldering and testing.",
-r:"Boards passed a repeatable voltage-sweep test, with trip and reset thresholds inside tolerance and the relay switching cleanly with no chatter.",
 x:[
 {h:"What it does",p:"The board is designed for unattended installations, a common requirement across ProTech's remote power products. A green LED shows a healthy battery voltage, a red LED warns when the voltage drops toward the low-battery threshold, and if it keeps falling to a critical level a transistor switches a relay that disconnects the battery from the load."},
 {h:"Design",p:"A resistor divider scales the battery voltage down so that a comparator stage can compare it against fixed reference thresholds, with a second comparator handling the critical cutoff. I simulated the circuit in LTspice, and after my supervisor Peter approved the schematic I moved it into KiCad."},
@@ -103,9 +101,8 @@ x:[
 {h:"Testing",p:"Each board went through the same procedure: connect a bench supply to the sense input, sweep the voltage down and back up while watching the LEDs and relay state with a multimeter, and confirm that the trip and reset thresholds fall within the tolerance band and the relay does not chatter. Boards that failed were debugged by following the circuit diagram to find the part not doing its job."},
 {h:"Results",p:"Boards that passed the sweep test were approved for use. The hysteresis fix gave clean, decisive switching, and the experience showed me why a defined test procedure matters more than visual inspection before a board leaves the bench."}
 ]},
-{t:"Solar Panel DC Converter and Mount",w:"Progressive Technologies, 2025–26",tags:["KiCad","LTspice","Fusion 360","Metalworking"],
+{t:"Solar Panel DC Converter and Mount",w:"Progressive Technologies, 2025–2026",tags:["KiCad","LTspice","Fusion 360"],
 d:"A solar and battery power PCB for remote stream and river water-level monitoring for local councils, plus a weatherproof die-cast aluminium enclosure and a mount that holds the panel at about 40° for New Zealand conditions.",
-r:"A regulated, thermally checked power board, and a mounting bracket that was prototyped, test-fitted and signed off for production.",
 x:[
 {h:"The problem",p:"The monitors sit in streams and rivers with no mains power, so a solar panel is the main source and a battery stores energy for low light and overnight. The board has to cope with a panel's much higher open-circuit voltage, work outdoors for years and need little maintenance."},
 {h:"Power board",p:"The core is an adjustable voltage regulator on the panel output, which clamps the voltage delivered to the battery and electronics. I worked from the panel datasheet's open-circuit voltage and short-circuit current and the target battery charge voltage to choose the feedback divider values and to size the current-limiting and protection parts."},
@@ -117,7 +114,6 @@ x:[
 ]},
 {t:"DC-DC Flyback Converter",w:"Jun–Oct 2024",tags:["Altium Designer","PLECS","LTspice","Ansys Maxwell","UC3843"],
 d:"A pocket-sized bench power supply that runs from a 20 V USB-C PD source and gives an isolated, user-set 5–30 V output, controlled and monitored from a computer. Our team of four designed the flyback converter, its transformer and the control firmware, then built and tested the prototype against a course specification.",
-r:"Designed to a 12 W, 100 kHz specification: below 100 mV ripple, over 80% efficiency above 5 W, 5% load regulation, over 0.5 kV isolation and 32 V over-voltage protection.",
 x:[
 {h:"Hardware",p:"The power stage is an isolated current-mode flyback converter switching at 100 kHz. A UC3843 controller generates the PWM, and an ATmega328PB on the secondary side measures the output voltage and sets the duty through a PI controller. The control signal and the USB-UART link to the computer both cross the isolation barrier through digital isolators, and the microcontroller is powered from an isolated supply module. I simulated the converter in LTspice and PLECS before building it."},
 {h:"Magnetics",p:"I designed the flyback transformer, specified its turns ratio, inductance and core, and validated it in Ansys Maxwell, then checked the finished transformer against the model. I also specified the protection components, including the 32 V over-voltage protection."},
@@ -127,7 +123,6 @@ x:[
 ]},
 {t:"Water Level Detection System",w:"Mar–May 2024",tags:["FEMM","LTspice","Through-hole PCB","Infrared"],
 d:"Aliaxis asked our team of four for a way to monitor farm water tanks without radio emissions, which would avoid CE, FCC and N-tick testing. We designed a capacitive water-level probe, an infrared transmitter and a receiver that turns the signal back into a DC voltage, with the electronics simulated in LTspice and built on a through-hole PCB.",
-r:"Output of 1.26 V for an empty tank and 3.00 V for a full one against a 1–3 V target, 2.9 m infrared range, no RF emissions, and about 95% to 99% simulated probe accuracy.",
 x:[
 {h:"Probe",p:"The probe is a flat two-core cable, and its capacitance rises as more of it is submerged because water has a much higher dielectric constant than air. We modelled it in FEMM for a 2.5 m tank and compared PVC with silicone rubber insulation. PVC gave a wider capacitance range (54 pF to 341 pF against 40 pF to 152 pF), and it is cheaper, more durable and more stable. Simulated accuracy with PVC was about 95% at 20% full, rising to about 99% at 100%, and a 3 pF change corresponds to roughly 2.6 cm of water."},
 {h:"Transmitter",p:"The probe is not built into the circuit, so four fixed capacitors stand in for different water levels. A 555 timer turns the capacitance into a square wave of about 6.8 kHz to 14.2 kHz, and a MOSFET drives an infrared LED with a 25% duty cycle. Short 360 mA pulses give a strong signal while the average current stays at 90 mA, safely under the LED's limit."},
@@ -138,7 +133,6 @@ x:[
 ]},
 {t:"Custom FPV Drone",w:"Dec 2024–Jan 2025",tags:["Soldering","ELRS","PID tuning"],
 d:"A quadcopter built from brushless motors, ESCs, an ELRS receiver and a flight controller. I did the calibration, PID tuning and signal mapping, and designed the power distribution with noise mitigation.",
-r:"A custom quadcopter that flies stably after calibration and PID tuning.",
 x:[
 {h:"Build",p:"I chose and assembled the parts: brushless motors, ESCs, an ELRS receiver and a flight controller, soldered together on a frame."},
 {h:"Design process",p:"I designed the power distribution to feed the motors and electronics from one battery while keeping motor switching noise away from the flight controller and receiver, using short, well-separated power leads and decoupling. I then calibrated the sensors, mapped the receiver channels to the flight controller, and tuned the PID gains step by step, adjusting while test flying until it responded cleanly."},
@@ -146,7 +140,6 @@ x:[
 ]},
 {t:"Building Lighting Design",w:"May–Jun 2024",tags:["DIALux Evo","AS/NZS 1680","AS/NZS 2293","NZ Building Code F6/F8"],
 d:"For ECO Design Limited's two-storey office building in Whangarei, our team of three assessed the existing T8 fluorescent lighting and designed a replacement that is energy-efficient and compliant with the standards. The scope covered indoor, outdoor and emergency lighting (AS/NZS 1680, AS/NZS 2293, NZ Building Code F6/F8), with a 12-year payback target.",
-r:"Indoor lighting power cut by about 75%, annual CO2 down from 18.6 tonnes to 5.2 tonnes, and a payback period of about 7.5 years against the 12-year target.",
 x:[
 {h:"Existing lighting",p:"The building used T8 36W fluorescent fittings with a power density of about 14.9 W/m², far above the 8 W/m² limit for large offices in AS/NZS 4243.2. Despite that, 17 of 40 spaces failed the uniformity requirement, and every CAD and conference room failed the glare limit (UGR 19). Replacing the 602 tubes would also cost about $6,020 in recycling."},
 {h:"Indoor design",p:"I modelled the building in DIALux Evo using ETAP U2 recessed LED luminaires, with square fittings in working spaces and linear fittings in circulation areas. The lobby uses suspended luminaires, the toilets use warmer 3000K light, and a wall washer lights the vertical surfaces in the changing room. All fittings are dimmable, so daylight can be offset in software. In Room 111 CAD, the layout achieved a UGR of 14.3 and 235 lux of vertical illuminance on the back shelf."},
@@ -174,7 +167,6 @@ foot:"© 2026 单 Eric。新西兰奥克兰。",
 res:"成果",
 feat:{t:"多基地雷达",w:"毕业设计，2026 年 3 月至 10 月",tags:["ESP32-S3","Wi-Fi CSI","KiCad PCB","Python 信号处理"],
 d:"多基地雷达通常需要昂贵的专用硬件。在毕业设计中（与项目搭档 Shakeer Devanath 合作，导师为 Kevin Sowerby 教授），我用四块 ESP32-S3 开发板搭建了系统，利用 Wi-Fi 信道状态信息 (CSI) 检测人员移动并大致定位：一个发射机、三个接收机，数据离线用 Python 处理。",
-r:"四节点系统成功运行，总成本约 91 新西兰元（每节点 22.75 新西兰元）。2 米至 30 米范围内丢包捕获率与同步率均达 99% 以上。在奥克兰大学 Display Day 中被评为无线电系统类别最佳项目。",
 x:[
 {h:"硬件",p:"每个节点由 ESP32-S3 模块和外接平板天线组成，使用移动电源供电。我先用现成模块搭建第一代验证设计，再设计了 47 × 83 mm 的双层 KiCad PCB，包含 USB-C 输入、3.3 V 稳压、microSD 插槽和可选降压模块，由 JLCPCB 制造并贴片。降压模块远离射频模块，避免开关噪声影响天线。"},
 {h:"成本",p:"定制 PCB 将单节点成本从第一代的 42.51 新西兰元降至第二代的 22.75 新西兰元，四节点系统约 91 新西兰元，而不是 170 新西兰元。一块 Raspberry Pi 5 约为单个节点价格的 9 倍，ADALM-PLUTO 软件无线电约为 21 倍。"},
@@ -185,9 +177,8 @@ x:[
 {h:"能做什么",p:"系统能够检测人体移动，并显示单个移动者的大致所在区域，全程只使用 Wi-Fi 信号，不需要摄像头或麦克风。这适合人员存在和占用检测，例如楼宇能耗管理或监测房间内的活动。每增加一个节点只需 22.75 新西兰元，也适合作为教学和多基地传感研究的平台。"}
 ]},
 p:[
-{t:"EVolocity 能源监测系统",w:"2025 年 3 月至 6 月",tags:["Altium Designer","LTspice","Raspberry Pi Pico W","FreeRTOS","React"],
+{t:"EVolocity 能源监测系统",w:"2025 年 3 月至 6 月",tags:["Altium Designer","LTspice","Raspberry Pi Pico W"],
 d:"EVolocity 让学生设计并参加电动车比赛，但比赛日评分因通过 USB-C 手动读取 ECU 数据而变慢，结果最多可延迟 90 分钟。我们团队开发了无线系统，包括传感 PCB、Pico W 固件和网页仪表盘，通过 UART 或 USB 自动采集数据。",
-r:"10 米以上传输速率 128 kB/s，下载时间减少 80% 以上，零丢包。",
 x:[
 {h:"硬件",p:"传感 PCB 用缓冲运放测量电压，用两个并联的 0.2 Ω 采样电阻和增益为 10 的放大器测量电流。每路信号经过 RC 低通滤波以防混叠，并由肖特基二极管钳位在 3.3 V 以保护 Pico W。L78L05 稳压器为运放供电，测试点和去耦电容便于调试。"},
 {h:"固件",p:"使用 C 语言、Pico SDK 和 FreeRTOS，任务分布在 Pico W 的两个核心上。一个任务以 5 Hz 采样电压、电流和温度，并每秒取平均值。Flash 任务把样本按 256 字节页批量写入环形缓冲区，可存约 24 小时数据，并保存写入偏移量，断电后不丢数据。Wi-Fi 任务每 5 秒自动重连，HTTP 任务把每 56 个样本打包成 JSON 发送到服务器。"},
@@ -198,7 +189,6 @@ x:[
 ]},
 {t:"电池电量监测系统",w:"2025 年 12 月至 2026 年 1 月",tags:["KiCad","LTspice","PCB 制造"],
 d:"为 ProTech 远程供电产品设计的电池监测器。它用绿色和红色 LED 显示 12V 铅酸电池的状态，并在深度放电造成损坏之前自动断开电池。我负责全流程：仿真、原理图、KiCad 布局、焊接和测试。",
-r:"电路板通过了可重复的电压扫描测试：动作和复位阈值在容差范围内，继电器干净切换，无抖动。",
 x:[
 {h:"功能",p:"这块板用于无人值守的安装环境，这是 ProTech 许多远程供电产品的共同需求。电压正常时绿色 LED 亮起，电压降向低电量阈值时红色 LED 发出警告，如果继续降到临界水平，晶体管会驱动继电器，把电池与负载断开。"},
 {h:"设计",p:"电阻分压把电池电压降下来，让比较器与固定的参考阈值比较，第二级比较器负责临界断电。我在 LTspice 中仿真电路，导师 Peter 批准原理图后，我把它转入 KiCad。"},
@@ -207,9 +197,8 @@ x:[
 {h:"测试",p:"每块板都经过同样的流程：把台式电源接到检测输入端，先降低再升高电压，同时用万用表观察 LED 和继电器状态，确认动作和复位阈值落在容差范围内，且继电器不抖动。不合格的板按电路图逐一排查不工作的元件。"},
 {h:"结果",p:"通过扫描测试的板子被批准使用。迟滞修改让切换干净果断，这次经历也让我明白，电路板出工作台之前，明确的测试流程比目视检查重要得多。"}
 ]},
-{t:"太阳能直流转换器与支架",w:"Progressive Technologies，2025–26",tags:["KiCad","LTspice","Fusion 360","金属加工"],
+{t:"太阳能直流转换器与支架",w:"Progressive Technologies，2025–26",tags:["KiCad","LTspice","Fusion 360"],
 d:"为当地市政部门监测溪流和河流水位设计的太阳能与电池供电 PCB，并设计了防水压铸铝外壳和使太阳能板保持约 40° 倾角的支架，适应新西兰环境。",
-r:"电源板输出稳定并经过热检查，支架经过原型制作和试装，并获批投产。",
 x:[
 {h:"问题",p:"监测设备位于溪流和河流旁，没有市电，所以以太阳能板为主要电源，用电池储能以应对弱光和夜间。电路板必须应对太阳能板高得多的开路电压，能在户外长期工作，并且几乎不需要维护。"},
 {h:"电源板",p:"核心是接在太阳能板输出端的可调稳压器，它钳制送往电池和电子设备的电压。我根据太阳能板数据手册中的开路电压和短路电流，以及目标电池充电电压，选择反馈分压电阻值，并确定限流和保护元件的规格。"},
@@ -221,7 +210,6 @@ x:[
 ]},
 {t:"DC-DC 反激式变换器",w:"2024 年 6 月至 10 月",tags:["Altium Designer","PLECS","LTspice","Ansys Maxwell","UC3843"],
 d:"一款口袋尺寸的工作台电源：由 20 V USB-C PD 电源供电，输出隔离、用户可设定的 5–30 V，并通过电脑控制和监测。我们四人团队设计了反激变换器、变压器和控制固件，并制作原型，按课程规格进行测试。",
-r:"按 12 W、100 kHz 规格设计：纹波低于 100 mV，5 W 以上效率高于 80%，负载调整率 5%，隔离超过 0.5 kV，过压保护 32 V。",
 x:[
 {h:"硬件",p:"功率级是隔离式电流模式反激变换器，开关频率 100 kHz。UC3843 控制器产生 PWM，副边的 ATmega328PB 测量输出电压，并通过 PI 控制器设定占空比。控制信号和与电脑之间的 USB-UART 通信都通过数字隔离器跨越隔离带，微控制器由隔离电源模块供电。搭建前我在 LTspice 和 PLECS 中对变换器进行了仿真。"},
 {h:"磁性元件",p:"我设计了反激变压器，确定了匝比、电感和磁芯，并用 Ansys Maxwell 验证，然后将实际绕制的变压器与模型对比。我还选定了保护元件，包括 32 V 过压保护。"},
@@ -231,7 +219,6 @@ x:[
 ]},
 {t:"水位检测系统",w:"2024 年 3 月至 5 月",tags:["FEMM","LTspice","通孔 PCB","红外"],
 d:"Aliaxis 请我们四人团队设计一种无射频发射的农场水箱监测方案，这样可以避免 CE、FCC 和 N-tick 认证测试。我们设计了电容式水位探头、红外发射机，以及把信号还原为直流电压的接收机，电子电路在 LTspice 中仿真，并制作在通孔 PCB 上。",
-r:"空水箱输出 1.26 V、满水箱输出 3.00 V（目标 1–3 V），红外传输距离 2.9 米，无射频发射，探头仿真精度约 95% 至 99%。",
 x:[
 {h:"探头",p:"探头是扁平双芯电缆，水的介电常数远高于空气，因此浸入水中越多，电容越大。我们在 FEMM 中针对 2.5 米水箱建模，比较了 PVC 和硅橡胶绝缘材料。PVC 的电容范围更宽（54 pF 至 341 pF，硅橡胶为 40 pF 至 152 pF），而且更便宜、更耐用、更稳定。使用 PVC 时，仿真精度在 20% 水位约为 95%，到 100% 时约为 99%，3 pF 的变化约对应 2.6 厘米的水位。"},
 {h:"发射机",p:"探头没有接入电路，所以用四个固定电容代表不同水位。555 定时器把电容转换为约 6.8 kHz 至 14.2 kHz 的方波，MOSFET 以 25% 占空比驱动红外 LED。360 mA 的短脉冲提供较强的信号，同时平均电流保持在 90 mA，安全低于 LED 的限值。"},
@@ -242,7 +229,6 @@ x:[
 ]},
 {t:"定制 FPV 无人机",w:"2024 年 12 月至 2025 年 1 月",tags:["焊接","ELRS","PID 调优"],
 d:"使用无刷电机、电调、ELRS 接收机和飞控组装的四旋翼无人机。我完成了校准、PID 调优和信号映射，并设计了带噪声抑制的配电系统。",
-r:"定制四旋翼，经校准和 PID 调优后飞行稳定。",
 x:[
 {h:"组装",p:"我选择并组装了零件：无刷电机、电调、ELRS 接收机和飞控，并把它们焊接在机架上。"},
 {h:"设计过程",p:"我设计了配电系统，用同一块电池给电机和电子设备供电，同时让电机开关噪声远离飞控和接收机，做法是使用短而分开的电源线和去耦。随后我校准传感器，把接收机通道映射到飞控，并一步步调节 PID 参数，边试飞边调整，直到响应干净。"},
@@ -250,7 +236,6 @@ x:[
 ]},
 {t:"建筑照明设计",w:"2024 年 5 月至 6 月",tags:["DIALux Evo","AS/NZS 1680","AS/NZS 2293","新西兰建筑规范 F6/F8"],
 d:"为 ECO Design Limited 位于旺格雷的两层办公楼，我们三人团队评估了现有 T8 荧光灯照明，并设计了节能且符合标准的替换方案。范围包括室内、室外和应急照明（AS/NZS 1680、AS/NZS 2293、新西兰建筑规范 F6/F8），目标是 12 年内回本。",
-r:"室内照明功率降低约 75%，年二氧化碳排放从 18.6 吨降至 5.2 吨，回收期约 7.5 年，优于 12 年的目标。",
 x:[
 {h:"现有照明",p:"大楼使用 T8 36W 荧光灯，功率密度约 14.9 W/m²，远高于 AS/NZS 4243.2 对大型办公楼 8 W/m² 的限值。即便如此，40 个空间中仍有 17 个不满足均匀度要求，所有 CAD 室和会议室也未达到眩光限值（UGR 19）。更换 602 根灯管的回收费用约为 6,020 新西兰元。"},
 {h:"室内设计",p:"我在 DIALux Evo 中建模，采用 ETAP U2 嵌入式 LED 灯具：工作区使用方形灯具，通道使用条形灯具。大堂采用吊装灯具，卫生间使用更柔和的 3000K 色温，更衣室用洗墙灯照亮垂直面。所有灯具都可调光，可通过软件根据日光进行补偿。在 111 室 CAD 室中，布局实现了 14.3 的 UGR，后墙架上的垂直照度为 235 lux。"},
@@ -275,7 +260,7 @@ var CAP=[["ESP32 Node Generation 1|ESP32 节点", "ESP32 Node Generation 2|ESP32
 ["Finished drone|成品无人机","Parts|布线与配电"],
 ["DIALux render|DIALux 渲染图","Emergency lighting plan|应急照明方案","Outdoor lighting|室外照明"]];
 var IMG={
-    0:["images/unit.png", "images/unit.png","images/spectro.png", "images/spectro.png","images/heatmap.png", "images/heatmap.png", "images/range1.png", "images/range2.png"],
+    0:["images/unit1.png", "images/unit2.png","images/spectro1.png", "images/spectro2.png","images/heatmap1.png", "images/heatmap2.png", "images/range1.png", "images/range2.png"],
     1:["images/ev1.png","images/ev2.png","images/ev3.png"],
     2:["images/bms1.png","images/bms2.png","images/bms3.png"],
     3:["images/SPOB1.png","images/SPOB2.png","images/SPOB3.png"],
@@ -309,8 +294,12 @@ function chip(id,t){return '<span class="chip" id="'+id+'">'+t+'</span>'}
 var DEMO={4:{h:flyHTML,i:flyInit},
 0:{h:function(z){return '<div class="fly">'+R('mv',z?'附近的运动强度':'Movement near the nodes',0,10,0)+'<svg viewBox="0 0 300 70" role="img" aria-label="CSI"><path d="M0 27H300M0 43H300" stroke="currentColor" stroke-dasharray="4 4" opacity=".4" fill="none"/><path id="cs" fill="none" stroke="currentColor" stroke-width="2"/></svg><p class="vo">'+chip('rc','')+'</p><p class="note">'+(z?'模拟信号，非实测数据。运动会扰动 Wi-Fi 信道状态信息 (CSI)，波动超过阈值（虚线）即判定为检测到。':'Simulated signal, not measured data. Movement disturbs the Wi-Fi Channel State Information (CSI); when it swings past the threshold (dashed lines) a detection is triggered.')+'</p></div>'},
 i:function(){var s=g('mv'),z=window.CUR.l==='zh';function u(){var m=s.value/10,d='',mx=0;for(var k=0;k<60;k++){var r=Math.sin(k*12.9898)*43758.5453%1,v=r*(.08+.9*m)+m*.5*Math.sin(k*.45);mx=Math.max(mx,Math.abs(v));d+=(k?'L':'M')+(k*300/59).toFixed(1)+' '+(35-v*20).toFixed(1)}g('cs').setAttribute('d',d);g('mvv').textContent=s.value+'/10';var t=mx>.4;g('rc').classList.toggle('on',t);g('rc').textContent=t?(z?'已检测到运动':'Movement detected'):(z?'无运动':'Clear')}s.addEventListener('input',u);u()}},
-2:{h:function(z){return '<div class="fly">'+R('bv',z?'电池电压 (V)':'Battery voltage (V)',10,14,13,.1)+'<p class="vo" id="bl"></p><p>'+chip('bz',z?'蜂鸣器':'Buzzer')+chip('rl',z?'继电器已断开':'Relay cut off')+'</p><p class="note">'+(z?'示意阈值，仅用于演示，实际电路阈值可能不同。':'Illustrative thresholds for demonstration; the real circuit’s values may differ.')+'</p></div>'},
-i:function(){var s=g('bv'),T=[13,12.5,12,11.5,11];function u(){var v=+s.value,h='';T.forEach(function(t){h+='<span class="dot'+(v>=t?' on':'')+'"></span>'});g('bl').innerHTML=h;g('bvv').textContent=v.toFixed(1)+' V';g('bz').classList.toggle('on',v<11.5);g('rl').classList.toggle('on',v<10.8)}s.addEventListener('input',u);u()}},
+2:{h:function(z){return '<div class="fly">'+R('bv',z?'电池电压 (V)':'Battery voltage (V)',11,12.8,12.8,.1)+'<p class="vo" id="bl"></p><p>'+chip('bz',z?'蜂鸣器':'Buzzer')+chip('rl',z?'继电器动作（断开负载）':'Relay on (load disconnected)')+'</p><p class="note">'+(z?'示意阈值，仅用于演示，实际电路阈值可能不同。':'')+'</p></div>'},
+i:function(){var s=g('bv'),C=['#22c55e','#f59e0b','#ef4444'];
+function u(){var v=Math.round(+s.value*10)/10,cut=v<11.5,st=cut?-1:v>12.2?0:v>11.8?1:2,h='';
+for(var k=0;k<3;k++){var on=st===k;h+='<span class="dot'+(on?' on':'')+'"'+(on?' style="background:'+C[k]+';border-color:'+C[k]+';box-shadow:0 0 10px '+C[k]+'"':'')+'></span>'}
+g('bl').innerHTML=h;g('bvv').textContent=v.toFixed(1)+' V';g('bz').classList.toggle('on',st===2);g('rl').classList.toggle('on',cut)}
+s.addEventListener('input',u);u()}},
 3:{h:function(z){return '<div class="fly">'+R('tl',z?'面板倾角':'Panel tilt',0,90,40)+'<svg viewBox="0 0 300 90" role="img" aria-label="Energy vs tilt"><path id="sc" fill="none" stroke="currentColor" stroke-width="2" opacity=".5"/><path d="M133 5V85" stroke="currentColor" stroke-dasharray="4 4" opacity=".5"/><circle id="sm" r="6" fill="currentColor"/></svg><p class="vo">'+(z?'相对年发电量 ':'Relative annual energy ')+'<b id="se"></b></p><p class="note">'+(z?'简化模型：新西兰纬度下约 40° 倾角发电量最高，这也是支架采用的角度（虚线）。':'Simplified model: around 40° gives the most energy at New Zealand’s latitude, which is the angle the mount holds (dashed line).')+'</p></div>'},
 i:function(){var s=g('tl');function E(t){return Math.cos((t-40)*Math.PI/180)*100}function X(t){return t/90*300}function Y(t){return 80-(E(t)-60)/40*70}var d='';for(var t=0;t<=90;t+=3)d+=(t?'L':'M')+X(t).toFixed(1)+' '+Y(t).toFixed(1);g('sc').setAttribute('d',d);function u(){var t=+s.value;g('tlv').textContent=t+'°'+(Math.abs(t-40)<2?' ✓':'');g('se').textContent=E(t).toFixed(0)+'%';g('sm').setAttribute('cx',X(t));g('sm').setAttribute('cy',Y(t))}s.addEventListener('input',u);u()}},
 };
@@ -329,6 +318,25 @@ document.addEventListener('click',function(e){var c=e.target.closest('[data-i]')
 document.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){var c=e.target.closest&&e.target.closest('[data-i]');if(c){e.preventDefault();openP(+c.getAttribute('data-i'))}}});
 document.getElementById('close').addEventListener('click',function(){dlg.close()});
 dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
+(function(){
+  var p=document.getElementById('plane');
+  if(!p||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var t=0,last=performance.now(),TILT=20;   // TILT: your image's nose points up-right, so we correct for that
+  function pos(t){
+    var w=innerWidth,h=innerHeight;
+    return [w/2+w*.42*Math.cos(t), h*.4+h*.28*Math.sin(t)+Math.sin(t*3)*12];
+  }
+  function frame(now){
+    var dt=Math.min(now-last,50);last=now;
+    t-=dt*.00035;                       // minus = anticlockwise, plus = clockwise
+    var a=pos(t),b=pos(t-.01);          // look slightly ahead in the direction of travel
+    var ang=Math.atan2(b[1]-a[1],b[0]-a[0])*180/Math.PI+TILT;
+    p.style.transform='translate('+(a[0]-32)+'px,'+(a[1]-24)+'px) rotate('+ang+'deg)';
+    p.style.opacity=Math.max(0,1-scrollY/(innerHeight*.8));
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
 var cur='en';
 try{var s=localStorage.getItem('lang');if(s==='zh'||s==='en')cur=s;else if((navigator.language||'').slice(0,2)==='zh')cur='zh'}catch(e){}
 render(cur);
