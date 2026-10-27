@@ -22,7 +22,8 @@ nav a{color:var(--muted);text-decoration:none;font-size:15px;font-weight:600}
 nav a:hover{color:var(--ink)}
 #lang,#theme{font:600 14px var(--body);background:none;color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:5px 10px;cursor:pointer}
 #theme{display:inline-flex;align-items:center;padding:5px 9px}
-#theme,#lang{margin-left:-14px}
+#theme{margin-left:2}
+#lang{margin-left:-14px}
 @media (max-width:640px){nav{display:none}}
 .hero{position:relative;overflow:hidden;padding:84px 0 72px;border-bottom:1px solid transparent}
 .hero svg{position:absolute;right:-40px;top:0;width:min(640px,80%);height:100%;fill:none;stroke:var(--trace);stroke-width:2;opacity:.35;pointer-events:none}
@@ -33,7 +34,7 @@ nav a:hover{color:var(--ink)}
 .hero .wrap{position:relative}
 .pill{display:inline-block;border:1px solid var(--accent);color:var(--accent);border-radius:99px;padding:3px 14px;font-size:15px;font-weight:600;margin-bottom:22px}
 h1{font-size:clamp(46px,9vw,92px);font-weight:700;letter-spacing:-.02em}
-.lead{max-width:34em;font-size:clamp(17px,1.5vw,16px);color:var(--muted);margin:22px 0 32px}
+.lead{max-width:46em;font-size:clamp(17px,1.5vw,16px);color:var(--muted);margin:22px 0 32px}
 .btns{display:flex;flex-wrap:wrap;gap:12px}
 .btn{display:inline-block;padding:11px 22px;border-radius:8px;font-weight:600;text-decoration:none;border:2px solid var(--accent)}
 .btn.pri{background:var(--surface);color:var(--ink)}
@@ -141,6 +142,20 @@ footer{padding:12px 0 48px}
 .card:hover,.feat:hover{border-color:#000000}
 @media (max-width:640px){
   .hero .wrap,section .wrap,footer .wrap{padding:22px 18px}
+}
+
+.hero-grid{display:grid;grid-template-columns:1fr auto;align-items:center;gap:32px}
+.hero-photo{display:block;width:clamp(180px,26vw,280px);aspect-ratio:1;object-fit:cover;border-radius:14px;border:1px solid var(--line);box-shadow:0 4px 16px rgba(0,0,0,.12)}
+@media (max-width:760px){
+  .hero-grid{grid-template-columns:1fr;gap:24px}
+  .hero-photo{
+    order:0;               /* removes the "move above" behaviour, so it sits after the text/buttons */
+    justify-self:center;   /* centers it horizontally */
+    width:min(240px,70%);
+    height:auto;
+    aspect-ratio:1/1;      /* perfect square */
+    object-fit:cover;
+  }
 }
 
 /* Paper plane */
