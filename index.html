@@ -84,16 +84,6 @@ x:[
 {h:"What it can do",p:"The system detects human movement and shows the approximate zone of a single moving person, using only Wi-Fi signals and no cameras or microphones. That suits presence and occupancy sensing, such as building energy management or monitoring activity in a room. At NZ$22.75 per extra node, it is also a practical platform for teaching and further multistatic sensing research."}
 ]},
 p:[
-{t:"EVolocity Energy Monitoring System",w:"Mar–Jun 2025",tags:["Altium Designer","LTspice","Raspberry Pi Pico W"],
-d:"EVolocity students race electric vehicles, but race-day scoring was slowed by manual ECU data retrieval over USB-C, which could delay results by up to 90 minutes. Our team built a wireless system with a sensing PCB, Pico W firmware and a web dashboard that collects the data automatically over UART or USB.",
-x:[
-{h:"Hardware",p:"The sensing PCB measures voltage with a buffer op-amp and current across two parallel 0.2 Ω shunt resistors with a gain-of-10 amplifier. Each signal passes through an RC low-pass filter to prevent aliasing, and Schottky diodes clamp it to 3.3 V to protect the Pico W. An L78L05 regulator supplies the op-amps, and test points and decoupling capacitors make debugging easier."},
-{h:"Firmware",p:"C with the Pico SDK and FreeRTOS, split across the Pico W's two cores. One task samples voltage, current and temperature at 5 Hz and averages them each second. Flash tasks batch the samples into 256-byte pages and write them to a circular buffer holding about 24 hours of data, storing the write offset so nothing is lost in a power cut. A Wi-Fi task reconnects automatically every 5 seconds, and an HTTP task posts batches of 56 samples as JSON to the server."},
-{h:"Software",p:"A SERN-stack app: Express and Node.js with SQLite on the backend, and a React and TypeScript dashboard built with Vite and Shadcn UI. It manages competitions, teams, events and monitors, scores teams automatically from time or energy, and shows a leaderboard and voltage, current, power and energy graphs per team."},
-{h:"Testing",p:"I tested the sensing circuits with 4 Ω to 12 Ω loads over ten trials each. Firmware was checked with a 2 V reference on the ADC pins and by comparing values written to and read back from flash. The backend was tested with Jest and Supertest, and the frontend with ViTest."},
-{h:"Results",p:"Voltage measurement error averaged about 0.7% and current about 0.9%, inside the ±1% requirement. Noise stayed below 10 mV RMS and the 5 V regulator held within ±0.02 V across all loads. The ADC read within 0.87% of a 2 V reference. The system reached 128 kB/s over 10 m+, cut download time by over 80% and lost no packets under simulated interference."},
-{h:"What it can do",p:"Race-day data now arrives wirelessly with no cables to plug in. Judges get scores and rankings straight away, and teachers and mentors can follow their team's performance during the event. Because each monitor is its own entity, a unit can be paired with a different team if something goes wrong, and one app can run several competitions."}
-]},
 {t:"Battery Level Monitoring System",w:"Progressive Technologies, 2025–2026",tags:["KiCad","LTspice","PCB Fabrication"],
 d:"A battery monitor for ProTech's remote power products. It shows the charge state of a 12V lead-acid battery with green and red LEDs and automatically disconnects the battery before deep discharge can damage it. I handled the whole process: simulation, schematic, KiCad layout, soldering and testing.",
 x:[
@@ -114,6 +104,16 @@ x:[
 {h:"Enclosure and mount",p:"I designed the bracket in CAD to hold the panel at about 40°, an angle I chose from research on solar irradiance at New Zealand's latitude to balance summer and winter energy. A die-cast aluminium enclosure was selected over cheaper plastic for better sealing and durability against humidity, temperature swings, splashing in high water and impact or tampering. A full CAD mock-up showed the first bracket clashed with the panel frame, so I reprofiled the mounting flange to clear it while still supporting wind loads. A physical prototype was then made and test-fitted before sign-off for production."},
 {h:"Testing and calculations",p:"On the bench I used an adjustable supply to emulate different panel outputs, confirmed the regulated output voltage and checked component temperatures under sustained load. I also estimated battery run-time for the monitor from its load current and battery capacity."},
 {h:"Results",p:"The board delivered a regulated output on the bench, the thermal issue was fixed before it reached hardware, and the mount design passed its physical test-fit and was signed off for production."}
+]},
+{t:"EVolocity Energy Monitoring System",w:"Mar–Jun 2025",tags:["Altium Designer","LTspice","Raspberry Pi Pico W"],
+d:"EVolocity students race electric vehicles, but race-day scoring was slowed by manual ECU data retrieval over USB-C, which could delay results by up to 90 minutes. Our team built a wireless system with a sensing PCB, Pico W firmware and a web dashboard that collects the data automatically over UART or USB.",
+x:[
+{h:"Hardware",p:"The sensing PCB measures voltage with a buffer op-amp and current across two parallel 0.2 Ω shunt resistors with a gain-of-10 amplifier. Each signal passes through an RC low-pass filter to prevent aliasing, and Schottky diodes clamp it to 3.3 V to protect the Pico W. An L78L05 regulator supplies the op-amps, and test points and decoupling capacitors make debugging easier."},
+{h:"Firmware",p:"C with the Pico SDK and FreeRTOS, split across the Pico W's two cores. One task samples voltage, current and temperature at 5 Hz and averages them each second. Flash tasks batch the samples into 256-byte pages and write them to a circular buffer holding about 24 hours of data, storing the write offset so nothing is lost in a power cut. A Wi-Fi task reconnects automatically every 5 seconds, and an HTTP task posts batches of 56 samples as JSON to the server."},
+{h:"Software",p:"A SERN-stack app: Express and Node.js with SQLite on the backend, and a React and TypeScript dashboard built with Vite and Shadcn UI. It manages competitions, teams, events and monitors, scores teams automatically from time or energy, and shows a leaderboard and voltage, current, power and energy graphs per team."},
+{h:"Testing",p:"I tested the sensing circuits with 4 Ω to 12 Ω loads over ten trials each. Firmware was checked with a 2 V reference on the ADC pins and by comparing values written to and read back from flash. The backend was tested with Jest and Supertest, and the frontend with ViTest."},
+{h:"Results",p:"Voltage measurement error averaged about 0.7% and current about 0.9%, inside the ±1% requirement. Noise stayed below 10 mV RMS and the 5 V regulator held within ±0.02 V across all loads. The ADC read within 0.87% of a 2 V reference. The system reached 128 kB/s over 10 m+, cut download time by over 80% and lost no packets under simulated interference."},
+{h:"What it can do",p:"Race-day data now arrives wirelessly with no cables to plug in. Judges get scores and rankings straight away, and teachers and mentors can follow their team's performance during the event. Because each monitor is its own entity, a unit can be paired with a different team if something goes wrong, and one app can run several competitions."}
 ]},
 {t:"DC-DC Flyback Converter",w:"Jun–Oct 2024",tags:["Altium Designer","PLECS","LTspice","Ansys Maxwell","UC3843"],
 d:"A pocket-sized bench power supply that runs from a 20 V USB-C PD source and gives an isolated, user-set 5–30 V output, controlled and monitored from a computer. Our team of four designed the flyback converter, its transformer and the control firmware, then built and tested the prototype against a course specification.",
@@ -180,16 +180,6 @@ x:[
 {h:"能做什么",p:"系统能够检测人体移动，并显示单个移动者的大致所在区域，全程只使用 Wi-Fi 信号，不需要摄像头或麦克风。这适合人员存在和占用检测，例如楼宇能耗管理或监测房间内的活动。每增加一个节点只需 22.75 新西兰元，也适合作为教学和多基地传感研究的平台。"}
 ]},
 p:[
-{t:"EVolocity 能源监测系统",w:"2025 年 3 月至 6 月",tags:["Altium Designer","LTspice","Raspberry Pi Pico W"],
-d:"EVolocity 让学生设计并参加电动车比赛，但比赛日评分因通过 USB-C 手动读取 ECU 数据而变慢，结果最多可延迟 90 分钟。我们团队开发了无线系统，包括传感 PCB、Pico W 固件和网页仪表盘，通过 UART 或 USB 自动采集数据。",
-x:[
-{h:"硬件",p:"传感 PCB 用缓冲运放测量电压，用两个并联的 0.2 Ω 采样电阻和增益为 10 的放大器测量电流。每路信号经过 RC 低通滤波以防混叠，并由肖特基二极管钳位在 3.3 V 以保护 Pico W。L78L05 稳压器为运放供电，测试点和去耦电容便于调试。"},
-{h:"固件",p:"使用 C 语言、Pico SDK 和 FreeRTOS，任务分布在 Pico W 的两个核心上。一个任务以 5 Hz 采样电压、电流和温度，并每秒取平均值。Flash 任务把样本按 256 字节页批量写入环形缓冲区，可存约 24 小时数据，并保存写入偏移量，断电后不丢数据。Wi-Fi 任务每 5 秒自动重连，HTTP 任务把每 56 个样本打包成 JSON 发送到服务器。"},
-{h:"软件",p:"采用 SERN 技术栈：后端为 Express、Node.js 和 SQLite，前端为用 Vite 和 Shadcn UI 构建的 React + TypeScript 仪表盘。它管理赛事、队伍、项目和监测器，根据时间或能耗自动给队伍评分，并显示排行榜以及每支队伍的电压、电流、功率和能量图表。"},
-{h:"测试",p:"我用 4 Ω 至 12 Ω 负载测试传感电路，每种负载做十次。固件通过在 ADC 引脚接入 2 V 基准，以及比对写入和读回 flash 的数值来验证。后端用 Jest 和 Supertest 测试，前端用 ViTest 测试。"},
-{h:"结果",p:"电压测量平均误差约 0.7%，电流约 0.9%，满足 ±1% 的要求。噪声低于 10 mV RMS，5 V 稳压器在所有负载下保持在 ±0.02 V 以内。ADC 读取 2 V 基准的误差为 0.87%。系统在 10 米以上达到 128 kB/s，下载时间减少 80% 以上，在模拟干扰下零丢包。"},
-{h:"能做什么",p:"比赛日数据现在无线传输，无需插线。裁判可以立即得到分数和排名，老师和导师也能在比赛期间查看自己队伍的表现。每个监测器都是独立的实体，出现问题时可以重新配对给其他队伍，同一个应用还能运行多个赛事。"}
-]},
 {t:"电池电量监测系统",w:"2025 年 12 月至 2026 年 1 月",tags:["KiCad","LTspice","PCB 制造"],
 d:"为 ProTech 远程供电产品设计的电池监测器。它用绿色和红色 LED 显示 12V 铅酸电池的状态，并在深度放电造成损坏之前自动断开电池。我负责全流程：仿真、原理图、KiCad 布局、焊接和测试。",
 x:[
@@ -210,6 +200,16 @@ x:[
 {h:"外壳与支架",p:"我用 CAD 设计了让太阳能板保持约 40° 倾角的支架，这个角度来自对新西兰纬度太阳辐照度的调研，用来平衡夏季和冬季的发电量。外壳选用压铸铝而不是更便宜的塑料，因为密封性更好，也更能抵御潮湿、温度变化、洪水时的飞溅以及撞击或人为破坏。完整的 CAD 模型显示最初的支架与太阳能板边框冲突，所以我重新设计了安装法兰以避开边框，同时仍能承受风载。随后制作了实物原型并试装，再批准投产。"},
 {h:"测试与计算",p:"我在台上用可调电源模拟不同的太阳能板输出，确认稳压输出电压，并在持续负载下检查元件温度。我还根据负载电流和电池容量估算了监测设备的电池运行时间。"},
 {h:"结果",p:"电路板在台上输出稳定，热问题在进入硬件阶段前就已解决，支架设计通过了实物试装并获批投产。"}
+]},
+{t:"EVolocity 能源监测系统",w:"2025 年 3 月至 6 月",tags:["Altium Designer","LTspice","Raspberry Pi Pico W"],
+d:"EVolocity 让学生设计并参加电动车比赛，但比赛日评分因通过 USB-C 手动读取 ECU 数据而变慢，结果最多可延迟 90 分钟。我们团队开发了无线系统，包括传感 PCB、Pico W 固件和网页仪表盘，通过 UART 或 USB 自动采集数据。",
+x:[
+{h:"硬件",p:"传感 PCB 用缓冲运放测量电压，用两个并联的 0.2 Ω 采样电阻和增益为 10 的放大器测量电流。每路信号经过 RC 低通滤波以防混叠，并由肖特基二极管钳位在 3.3 V 以保护 Pico W。L78L05 稳压器为运放供电，测试点和去耦电容便于调试。"},
+{h:"固件",p:"使用 C 语言、Pico SDK 和 FreeRTOS，任务分布在 Pico W 的两个核心上。一个任务以 5 Hz 采样电压、电流和温度，并每秒取平均值。Flash 任务把样本按 256 字节页批量写入环形缓冲区，可存约 24 小时数据，并保存写入偏移量，断电后不丢数据。Wi-Fi 任务每 5 秒自动重连，HTTP 任务把每 56 个样本打包成 JSON 发送到服务器。"},
+{h:"软件",p:"采用 SERN 技术栈：后端为 Express、Node.js 和 SQLite，前端为用 Vite 和 Shadcn UI 构建的 React + TypeScript 仪表盘。它管理赛事、队伍、项目和监测器，根据时间或能耗自动给队伍评分，并显示排行榜以及每支队伍的电压、电流、功率和能量图表。"},
+{h:"测试",p:"我用 4 Ω 至 12 Ω 负载测试传感电路，每种负载做十次。固件通过在 ADC 引脚接入 2 V 基准，以及比对写入和读回 flash 的数值来验证。后端用 Jest 和 Supertest 测试，前端用 ViTest 测试。"},
+{h:"结果",p:"电压测量平均误差约 0.7%，电流约 0.9%，满足 ±1% 的要求。噪声低于 10 mV RMS，5 V 稳压器在所有负载下保持在 ±0.02 V 以内。ADC 读取 2 V 基准的误差为 0.87%。系统在 10 米以上达到 128 kB/s，下载时间减少 80% 以上，在模拟干扰下零丢包。"},
+{h:"能做什么",p:"比赛日数据现在无线传输，无需插线。裁判可以立即得到分数和排名，老师和导师也能在比赛期间查看自己队伍的表现。每个监测器都是独立的实体，出现问题时可以重新配对给其他队伍，同一个应用还能运行多个赛事。"}
 ]},
 {t:"DC-DC 反激式变换器",w:"2024 年 6 月至 10 月",tags:["Altium Designer","PLECS","LTspice","Ansys Maxwell","UC3843"],
 d:"一款口袋尺寸的工作台电源：由 20 V USB-C PD 电源供电，输出隔离、用户可设定的 5–30 V，并通过电脑控制和监测。我们四人团队设计了反激变换器、变压器和控制固件，并制作原型，按课程规格进行测试。",
@@ -253,20 +253,20 @@ jobs:[
 {w:"2024 年 11 月 – 2025 年 2 月",t:"电气工程实习生",o:"Future Manufacturing Ltd",b:["支持 DC-DC 变换器量产，包括 PCB 组装、焊接和测试。","编写并维护原理图、PCB 布局、BOM 和技术报告。"]}],
 sk:[["工程工具","Altium Designer, KiCad, LTspice, PLECS, Autodesk Fusion, DIALux Evo, FEMM"],["电子","通孔与表面贴装焊接, Raspberry Pi, ESP32, Arduino"],["编程","MATLAB, C/C++, Java, Python, Git, LaTeX, HTML, CSS"],["专业能力","报告撰写, 技术文档, 英语和普通话（流利）"]]}
 };
-var S={en:["Wi-Fi radar built from low-cost ESP32 nodes. Best in Radio Systems at Display Day.","Wireless race-day data collection for student electric vehicles.","12V lead-acid battery monitor with green/red LEDs and a low-voltage relay cutoff.","Solar and battery power board and 40° mount for stream and river water-level monitors.","Isolated 5–30 V pocket bench supply with PI control.","Water-level probe designed with FEMM and LTspice.","Quadcopter built, tuned and tested from components.","Standards-compliant indoor, outdoor and emergency lighting."],zh:["用低成本 ESP32 节点搭建的 Wi-Fi 雷达，获 Display Day 无线电系统类别最佳项目。","为学生电动车比赛提供无线数据采集。","12V 铅酸电池监测器，带红绿 LED 指示和低压继电器断电。","用于溪流和河流水位监测的太阳能与电池供电板及 40° 支架。","带 PI 控制的隔离式 5–30 V 口袋电源。","用 FEMM 和 LTspice 设计的水位探头。","从零件开始组装、调试并测试的四旋翼。","符合标准的室内、室外及应急照明。"]};
+var S={en:["Wi-Fi radar built from low-cost ESP32 nodes. Best in Radio Systems at University of Auckland Display Day.","12V lead-acid battery monitor with green/red LEDs and a low-voltage relay cutoff.","Solar and battery power board and 40° mount for stream and river water-level monitors.","Wireless race-day data collection for student electric vehicles.","Isolated 5–30 V pocket bench supply with PI control.","Water-level probe designed with FEMM and LTspice.","Quadcopter built, tuned and tested from components.","Standards-compliant indoor, outdoor and emergency lighting."],zh:["用低成本 ESP32 节点搭建的 Wi-Fi 雷达，获 Display Day 无线电系统类别最佳项目。","12V 铅酸电池监测器，带红绿 LED 指示和低压继电器断电。","用于溪流和河流水位监测的太阳能与电池供电板及 40° 支架。","为学生电动车比赛提供无线数据采集。","带 PI 控制的隔离式 5–30 V 口袋电源。","用 FEMM 和 LTspice 设计的水位探头。","从零件开始组装、调试并测试的四旋翼。","符合标准的室内、室外及应急照明。"]};
 var CAP=[["ESP32 Node Generation 1|ESP32 节点", "ESP32 Node Generation 2|ESP32 节点", "Spectrogram Results Sitting |雷达系统", "Spectrogram Results Standing|雷达系统","Heatmap Results Baseline|热力图结果","Heatmap Results 1 Participant Tracking|热力图结果","Distance Range Test |跟踪测试","Obstruction Range Test|跟踪测试"],
-["Energy Monitoring PCB|能源监测 PCB","PCB Schematic|数据仪表盘","Dashboard|数据仪表盘"],
 ["Assembled Board Front|组装完成的电路板","Assembled Board Back|组装完成的电路板","PCB layout|PCB 布局"],
 ["DC-DC Converter PCB|转换器 PCB","Enclosure and Mount CAD|外壳与支架 CAD","Installed mount|安装好的支架"],
+["Energy Monitoring PCB|能源监测 PCB","PCB Schematic|数据仪表盘","Dashboard|数据仪表盘"],
 ["Schematic|原理图","PCB layout|PCB 布局","Assembled supply|组装完成的电源"],
 ["FEMM probe simulation|FEMM 探头仿真","Transmitter and receiver|收发电路","Built PCB|制作完成的 PCB"],
 ["Finished drone|成品无人机","Parts|布线与配电"],
 ["DIALux render|DIALux 渲染图","Emergency lighting plan|应急照明方案","Outdoor lighting|室外照明"]];
 var IMG={
     0:["images/unit1.png", "images/unit2.png","images/spectro1.png", "images/spectro2.png","images/heatmap1.png", "images/heatmap2.png", "images/range1.png", "images/range2.png"],
-    1:["images/ev1.png","images/ev2.png","images/ev3.png"],
-    2:["images/bms1.png","images/bms2.png","images/bms3.png"],
-    3:["images/SPOB1.png","images/SPOB2.png","images/SPOB3.png"],
+    1:["images/bms1.png","images/bms2.png","images/bms3.png"],
+    2:["images/SPOB1.png","images/SPOB2.png","images/SPOB3.png"],
+    3:["images/ev1.png","images/ev2.png","images/ev3.png"],
     4:["images/dc1.png","images/dc2.png"],
     5:[],
     6:["images/drone1.png","images/drone2.png"],
@@ -283,7 +283,7 @@ document.getElementById('jobs').innerHTML=d.jobs.map(function(j){return '<div cl
 document.getElementById('lang').textContent=l==='zh'?'EN':'中文';setBtn(l);
 }
 var root=document.documentElement,mq=window.matchMedia('(prefers-color-scheme: dark)');
-function isDark(){var t=root.getAttribute('data-theme');return t?t==='dark':mq.matches}
+function isDark(){return root.getAttribute('data-theme')==='dark'}
 function setBtn(l){var b=document.getElementById('theme'),d=isDark(),z=l==='zh';b.innerHTML=d?'<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>':'<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>';b.setAttribute('aria-label',d?(z?'切换到浅色模式':'Switch to light mode'):(z?'切换到深色模式':'Switch to dark mode'))}
 try{var st=localStorage.getItem('theme');if(st==='dark'||st==='light')root.setAttribute('data-theme',st)}catch(e){}
 document.getElementById('theme').addEventListener('click',function(){var n=isDark()?'light':'dark';function ap(){root.setAttribute('data-theme',n);setBtn(cur)}if(document.startViewTransition&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.startViewTransition(ap);else ap();try{localStorage.setItem('theme',n)}catch(e){}});
@@ -296,13 +296,13 @@ function chip(id,t){return '<span class="chip" id="'+id+'">'+t+'</span>'}
 var DEMO={4:{h:flyHTML,i:flyInit},
 0:{h:function(z){return '<div class="fly">'+R('mv',z?'附近的运动强度':'Movement near the nodes',0,10,0)+'<svg viewBox="0 0 300 70" role="img" aria-label="CSI"><path d="M0 27H300M0 43H300" stroke="currentColor" stroke-dasharray="4 4" opacity=".4" fill="none"/><path id="cs" fill="none" stroke="currentColor" stroke-width="2"/></svg><p class="vo">'+chip('rc','')+'</p><p class="note">'+(z?'模拟信号，非实测数据。运动会扰动 Wi-Fi 信道状态信息 (CSI)，波动超过阈值（虚线）即判定为检测到。':'Simulated signal, not measured data. Movement disturbs the Wi-Fi Channel State Information (CSI); when it swings past the threshold (dashed lines) a detection is triggered.')+'</p></div>'},
 i:function(){var s=g('mv'),z=window.CUR.l==='zh';function u(){var m=s.value/10,d='',mx=0;for(var k=0;k<60;k++){var r=Math.sin(k*12.9898)*43758.5453%1,v=r*(.08+.9*m)+m*.5*Math.sin(k*.45);mx=Math.max(mx,Math.abs(v));d+=(k?'L':'M')+(k*300/59).toFixed(1)+' '+(35-v*20).toFixed(1)}g('cs').setAttribute('d',d);g('mvv').textContent=s.value+'/10';var t=mx>.4;g('rc').classList.toggle('on',t);g('rc').textContent=t?(z?'已检测到运动':'Movement detected'):(z?'无运动':'Clear')}s.addEventListener('input',u);u()}},
-2:{h:function(z){return '<div class="fly">'+R('bv',z?'电池电压 (V)':'Battery voltage (V)',11,12.8,12.8,.1)+'<p class="vo" id="bl"></p><p>'+chip('bz',z?'蜂鸣器':'Buzzer')+chip('rl',z?'继电器动作（断开负载）':'Relay on (load disconnected)')+'</p><p class="note">'+(z?'示意阈值，仅用于演示，实际电路阈值可能不同。':'')+'</p></div>'},
+1:{h:function(z){return '<div class="fly">'+R('bv',z?'电池电压 (V)':'Battery voltage (V)',11,12.8,12.8,.1)+'<p class="vo" id="bl"></p><p>'+chip('bz',z?'蜂鸣器':'Buzzer')+chip('rl',z?'继电器动作（断开负载）':'Relay on (load disconnected)')+'</p><p class="note">'+(z?'示意阈值，仅用于演示，实际电路阈值可能不同。':'')+'</p></div>'},
 i:function(){var s=g('bv'),C=['#22c55e','#f59e0b','#ef4444'];
 function u(){var v=Math.round(+s.value*10)/10,cut=v<11.5,st=cut?-1:v>12.2?0:v>11.8?1:2,h='';
 for(var k=0;k<3;k++){var on=st===k;h+='<span class="dot'+(on?' on':'')+'"'+(on?' style="background:'+C[k]+';border-color:'+C[k]+';box-shadow:0 0 10px '+C[k]+'"':'')+'></span>'}
 g('bl').innerHTML=h;g('bvv').textContent=v.toFixed(1)+' V';g('bz').classList.toggle('on',st===2);g('rl').classList.toggle('on',cut)}
 s.addEventListener('input',u);u()}},
-3:{h:function(z){return '<div class="fly">'+R('tl',z?'面板倾角':'Panel tilt',0,90,40)+'<svg viewBox="0 0 300 90" role="img" aria-label="Energy vs tilt"><path id="sc" fill="none" stroke="currentColor" stroke-width="2" opacity=".5"/><path d="M133 5V85" stroke="currentColor" stroke-dasharray="4 4" opacity=".5"/><circle id="sm" r="6" fill="currentColor"/></svg><p class="vo">'+(z?'相对年发电量 ':'Relative annual energy ')+'<b id="se"></b></p><p class="note">'+(z?'简化模型：新西兰纬度下约 40° 倾角发电量最高，这也是支架采用的角度（虚线）。':'Simplified model: around 40° gives the most energy at New Zealand’s latitude, which is the angle the mount holds (dashed line).')+'</p></div>'},
+2:{h:function(z){return '<div class="fly">'+R('tl',z?'面板倾角':'Panel tilt',0,90,40)+'<svg viewBox="0 0 300 90" role="img" aria-label="Energy vs tilt"><path id="sc" fill="none" stroke="currentColor" stroke-width="2" opacity=".5"/><path d="M133 5V85" stroke="currentColor" stroke-dasharray="4 4" opacity=".5"/><circle id="sm" r="6" fill="currentColor"/></svg><p class="vo">'+(z?'相对年发电量 ':'Relative annual energy ')+'<b id="se"></b></p><p class="note">'+(z?'简化模型：新西兰纬度下约 40° 倾角发电量最高，这也是支架采用的角度（虚线）。':'Simplified model: around 40° gives the most energy at New Zealand’s latitude, which is the angle the mount holds (dashed line).')+'</p></div>'},
 i:function(){var s=g('tl');function E(t){return Math.cos((t-40)*Math.PI/180)*100}function X(t){return t/90*300}function Y(t){return 80-(E(t)-60)/40*70}var d='';for(var t=0;t<=90;t+=3)d+=(t?'L':'M')+X(t).toFixed(1)+' '+Y(t).toFixed(1);g('sc').setAttribute('d',d);function u(){var t=+s.value;g('tlv').textContent=t+'°'+(Math.abs(t-40)<2?' ✓':'');g('se').textContent=E(t).toFixed(0)+'%';g('sm').setAttribute('cx',X(t));g('sm').setAttribute('cy',Y(t))}s.addEventListener('input',u);u()}},
 };
 var dlg=document.getElementById('dlg');
